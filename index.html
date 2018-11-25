@@ -2,31 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="description" content="Perfect solution for monitoring air temperature at home, in a greenhouse or in a server room. Additional version with waterproof probe is available." />
+  <meta name="description" content="Perfect solution for monitoring air temperature at home, in a greenhouse or in a server room. Additional version with waterproof probe is available. Just connect to a PC and start logging temperatures." />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Thermometer -55 ~ +125°C with USB connection</title>
   <style>
-    body{background:#eeeeee;font-family:sans-serif;}
+    body{background:#eeeeee;font-family:sans-serif;font-size:14pt;}
     header,main,footer{max-width:800px;display:block;margin:0 auto;width:98%;}
     footer{padding:2ex 0px;text-align:center;}
-    a{color:blue;}
+    a{color:#23415a;}
     p{text-align:justify;}
     .image{display:block;margin:0 auto;max-width:90%;}
-    .logo{height:3em;}
+    header img{height:3em;}
+    .logos img{height:7em;}
     h1{border-bottom:2px solid black;}
   </style> 
 </head>
 <body>
 
-<header>
-
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
-  "name": "USB Temp",
-  "legalName": "USB Temp",
+  "name": "USBtemp",
+  "legalName": "USBtemp",
   "foundingDate": "2017",
   "url": "https://usbtemp.com/",
   "logo": "https://usbtemp.com/usbtemp_logo.png",
@@ -35,7 +34,9 @@
 }
 </script>
 
-<img src="usbtemp_logo.png" alt="USBtemp logo" class="logo" />
+<header>
+
+<img src="logos/usbtemp_logo.png" alt="USBtemp logo" />
 
 </header>
 
@@ -48,10 +49,10 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "43"
+    "reviewCount": "45"
   },
   "description": "Temperature Measurement USB Data Acquisition Device",
-  "name": "usbtemp",
+  "name": "USBtemp",
   "image": "/usbtemp_667_web.jpg",
   "offers": {
     "@type": "Offer",
@@ -100,15 +101,17 @@ tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp.</li>
 </ul>
 
 <h3>Picture of normal version</h3>
-<a href="usbtemp_2000.jpg"><img src="usbtemp_667_web.jpg" alt="USB Thermometer product image" class="image" /></a>
-<a href="usbtemp_waterproof_3400.jpg">See picture of waterproof version</a>
+<a href="images/usbtemp_2000.jpg"><img src="images/usbtemp_667_web.jpg" alt="USB Thermometer product image" class="image" /></a>
+<a href="images/usbtemp_waterproof_3400.jpg">See picture of waterproof version</a>
 
 <h2>Support</h2>
 <p>
 Technical support is available on mail <em>support@[this domain]</em>.
 </p>
-<img src="W10_comp.png" alt="Windows 10 compatible" style="height:7em;" />
-<img src="node.png" alt="nodejs library available" style="height:7em;" />
+<div class="logos">
+<img src="logos/W10_comp.png" alt="Windows 10 compatible" />
+<img src="logos/node.png" alt="nodejs library available" />
+</div>
 
 <h2>Buy</h2>
 <p>
@@ -134,7 +137,8 @@ ordered).
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="AVH6CP64PX3F2">
 <input type="hidden" name="on0" value="version">
-EUR - Select version: <select name="os0">
+EUR - Select version:
+<select name="os0">
   <option value="normal">normal 8.00 EUR + shipping</option>
   <option value="waterproof">waterproof 10.50 EUR + shipping</option>
 </select>
@@ -144,7 +148,11 @@ EUR - Select version: <select name="os0">
 
 </main>
 
-<footer><small>2018 KEL, Slovenia</small></footer>
+<footer>
+
+<small>2018 KEL, Slovenia</small>
+
+</footer>
 
 </body>
 </html>
