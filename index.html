@@ -52,16 +52,22 @@
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "53"
+    "ratingCount": "56",
+    "bestRating": "5",
+    "worstRating": "1"
   },
+  "brand": "USBtemp",
   "description": "Temperature Measurement USB Data Acquisition Device",
-  "name": "USBtemp",
-  "image": "/usbtemp_667_web.jpg",
+  "image": "https://usbtemp.com/images/usbtemp_667_web.jpg",
+  "name": "USB Digital Thermometer",
   "offers": {
     "@type": "Offer",
-    "price": "9.8",
+    "availability": "http://schema.org/InStock",
+    "itemCondition": "http://schema.org/NewCondition",
+    "price": "9.80",
     "priceCurrency": "USD"
-  }
+  },
+  "sku": "USB-TEMP"
 }
 </script>
 
@@ -118,11 +124,44 @@ Technical support is available on mail <em>support@[this domain]</em>.
 <img src="logos/node.png" alt="nodejs library available" />
 </div>
 
+<h2>Buy</h2>
+<p>
+Thermometer could be ordered securely online from 13.8 USD (11.5 EUR)
+with PayPal. Order will be shipped as registered mail (with tracking).
+Shipping is flat rate (does not depend on the number of thermometers
+ordered).
+</p>
+<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="ZQEWWRMZQS9M6" />
+<input type="hidden" name="on0" value="Version" />
+<input type="hidden" name="image_url" value="https://usbtemp.com/usbtemp_logo.png" />
+<label for="osusd">USD - Select version:</label>
+<select name="os0" id="osusd">
+  <option value="normal">normal 9.80 USD + shipping</option>
+  <option value="waterproof">waterproof 12.80 USD + shipping</option>
+</select>
+<input type="hidden" name="currency_code" value="USD" />
+<input type="image" src="btn_cart_SM.gif" name="submit" alt="PayPal" />
+</form>
+<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="AVH6CP64PX3F2">
+<input type="hidden" name="on0" value="version">
+<label for="oseur">EUR - Select version:</label>
+<select name="os0" id="oseur">
+  <option value="normal">normal 8.00 EUR + shipping</option>
+  <option value="waterproof">waterproof 10.50 EUR + shipping</option>
+</select>
+<input type="hidden" name="currency_code" value="EUR">
+<input type="image" src="btn_cart_LG.gif" name="submit" alt="PayPal">
+</form>
+
 </main>
 
 <footer>
 
-<small>2018 KEL, Slovenia</small>
+<small>2019 KEL, Slovenia</small>
 
 </footer>
 
