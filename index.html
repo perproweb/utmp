@@ -20,6 +20,12 @@
     .logos img{height:5em;}
     .logos img+img{margin-left:1em;}
     h1{border-bottom:2px solid #23415a;}
+    @media(max-width: 960px){
+      ul{list-style-type:none;padding-left:0;}
+      ul li+li{margin-top:0.5em;}
+    }
+    form+form{margin-top:0.5em;}
+    input[type="image"]{vertical-align:middle;}
   </style>
 </head>
 <body>
@@ -142,7 +148,7 @@ Thermometer could be ordered securely online with PayPal. Order will be shipped 
   <option value="waterproof">waterproof 12.80 USD + shipping</option>
 </select>
 <input type="hidden" name="currency_code" value="USD" />
-<input type="image" src="btn_cart_SM.gif" name="submit" alt="PayPal" />
+<input type="image" src="btn_cart_LG.png" name="submit" alt="PayPal" />
 </form>
 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -154,7 +160,7 @@ Thermometer could be ordered securely online with PayPal. Order will be shipped 
   <option value="waterproof">waterproof 10.50 EUR + shipping</option>
 </select>
 <input type="hidden" name="currency_code" value="EUR">
-<input type="image" src="btn_cart_LG.gif" name="submit" alt="PayPal">
+<input type="image" src="btn_cart_LG.png" name="submit" alt="PayPal">
 </form>
 
 </main>
