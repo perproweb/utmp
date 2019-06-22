@@ -17,7 +17,7 @@
     p{text-align:justify;}
     .image{clear:both;display:block;margin:0 auto;max-width:90%;}
     header img{height:3em;}
-    .logos img{height:5em;}
+    .logos img{height:3em;}
     .logos img+img{margin-left:1em;}
     h1{border-bottom:2px solid #23415a;}
     @media(max-width: 960px){
@@ -58,8 +58,8 @@
   "@type": "Product",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "ratingCount": "59",
+    "ratingValue": "4.95",
+    "ratingCount": "61",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -81,7 +81,7 @@
 
 <h1>USB Thermometer</h1>
 <p>
-Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and PL-2303TA serial interface, provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
+Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and USB serial interface (PL-2303TA or CP2102), provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
 </p>
 <p>
 Perfect solution for monitoring air temperature at home, in a greenhouse or in a server room. Measurements are more accurate since the probe is not in the same housing as the USB plug. It is possible to put the probe on longer cable, or make it waterproof by putting it inside a stainless steel or copper tube. Desipe probe's wide measuring range it is advisable its usage between –20 and +85 degrees Celsius. Unit of readout value (Celsius or Fahrenheit) depends on software used.
@@ -108,13 +108,14 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 <h2 id="software">Drivers and software</h2>
 <ul>
 <li><a href="https://fs3.kel.si/drivers/pl2303-v1200.exe">Prolific (PL2303) driver for Windows</a> <i>(from <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41">prolific.com.tw</a>)</i></li>
-<li>Maxim 1-wire driver <a href="https://fs3.kel.si/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://fs3.kel.si/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.maximintegrated.com/en/products/ibutton/software/tmex/download_drivers.cfm">Maxim</a>)</i></li>
+<li>Silicon Labs CP2102 driver <a href="https://fs3.kel.si/drivers/cp210x_win7_8_v6-7-6.zip">for Windows 7 &amp; 8</a>, <a href="https://fs3.kel.si/drivers/cp210x_win10_v10-1-7.zip">for Windows 10</a>  <i>(from <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">silabs.com</a>)</i></li>
+<li>Maxim 1-wire driver <a href="https://fs3.kel.si/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://fs3.kel.si/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.maximintegrated.com/en/products/ibutton/software/tmex/download_drivers.cfm">Maxim Integrated</a>)</i></li>
 </ul>
 <ul>
 <li><a href="https://fs3.kel.si/software/digitemp.exe">digitemp.exe (v1.7)</a> <i>(from <a href="https://digitemp.com/software/windows/index.html">digitemp.com</a>)</i></li>
-<li><a href="https://fs3.kel.si/software/onewireviewer.zip">Maxim 1-wire viewer</a></li>
-<li><a href="https://fs3.kel.si/software/logtemp-v225.exe">LogTemp (v2.25)</a> (needs Maxim 1-wire driver) <i>(from <a href="https://www.mrsoft.fi/ohj01en.htm">mrsoft.fi</a>)</i></li>
-<li><a href="https://github.com/usbtemp/usbtemp-cli/releases/latest">usbtemp-cli binary release</a> <i>(command line)</i></li>
+<li><a href="https://fs3.kel.si/software/onewireviewer.zip">Maxim 1-wire viewer for Windows</a> <i>(from <a href="https://www.maximintegrated.com/en/products/ibutton/software/1wire/owv_offline_instructions.cfm">Maxim Integrated</a>)</i></li>
+<li><a href="https://fs3.kel.si/software/logtemp-v225.exe">LogTemp (v2.25)</a> (needs Maxim 1-wire driver) <i>(from <a href="https://www.mrsoft.fi/ohj01en.htm">MR Soft</a>)</i></li>
+<li>usbtemp-cli <a href="/cli.exe">for Windows</a>, <a href="/cli">for Linux x86-64</a> <i>(from <a href="https://github.com/usbtemp/usbtemp-cli/releases/latest">usbtemp-cli release</a>)</i></li>
 </ul>
 
 <h3>Picture of normal version</h3>
