@@ -81,7 +81,7 @@
 
 <h1>USB Thermometer</h1>
 <p>
-Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and USB serial interface (PL-2303TA or CP2102), provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
+Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and USB bridge interface (PL-2303TA or CP2102), provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
 </p>
 <p>
 Perfect solution for monitoring air temperature at home, in a greenhouse or in a server room. Measurements are more accurate since the probe is not in the same housing as the USB plug. It is possible to put the probe on longer cable, or make it waterproof by putting it inside a stainless steel or copper tube. Desipe probe's wide measuring range it is advisable its usage between –20 and +85 degrees Celsius. Unit of readout value (Celsius or Fahrenheit) depends on software used.
@@ -92,7 +92,7 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 <li>Measuring range: <strong>–55 °C — +125 °C</strong> (<strong>–67 °F — +257 °F</strong>)</li>
 <li>Accuracy: <strong>0.5 °C</strong> (<strong>0.9 °F</strong>) (from –10 °C to +85 °C), <strong>2 °C</strong> otherwise</li>
 <li>Resolution: <strong>0.0625 °C</strong> (<strong>0.1125 °F</strong>) at 12-bit</li>
-<li>Data record frequency: <strong>above 750 milliseconds</strong></li>
+<li>Data record frequency: <strong>above 750 milliseconds</strong> at 12-bit</li>
 <li>Cable length (between plug and probe): approximate <strong>82 cm</strong></li>
 <li>Works under <strong>Linux™</strong> (Debian, Fedora, Mageia, Manjaro, Openwrt/LEDE, Rosa, Ubuntu etc.) and <strong>Windows®</strong> XP SP2, Vista, 7, 8, 8.1 and 10. CPU architecture independent: works also on MIPS and ARM (e.g. Raspberry Pi).</li>
 <li>Supported by dedicated open source software (released under MIT license) at <a href="https://github.com/usbtemp" rel="nofollow">github.com/usbtemp</a> (C, C++, C#, node.js and python 3 libraries with examples) and wide range of third-party tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp.</li>
@@ -115,7 +115,7 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 <li><a href="https://fs3.kel.si/software/digitemp.exe">digitemp.exe (v1.7)</a> <i>(from <a href="https://digitemp.com/software/windows/index.html">digitemp.com</a>)</i></li>
 <li><a href="https://fs3.kel.si/software/onewireviewer.zip">Maxim 1-wire viewer for Windows</a> <i>(from <a href="https://www.maximintegrated.com/en/products/ibutton/software/1wire/owv_offline_instructions.cfm">Maxim Integrated</a>)</i></li>
 <li><a href="https://fs3.kel.si/software/logtemp-v225.exe">LogTemp (v2.25)</a> (needs Maxim 1-wire driver) <i>(from <a href="https://www.mrsoft.fi/ohj01en.htm">MR Soft</a>)</i></li>
-<li>usbtemp-cli <a href="/cli.exe">for Windows</a>, <a href="/cli">for Linux x86-64</a> <i>(from <a href="https://github.com/usbtemp/usbtemp-cli/releases/latest">usbtemp-cli release</a>)</i></li>
+<li><a href="https://github.com/usbtemp/usbtemp-cli/">cli</a> <a href="/cli.exe">for Windows</a>, <a href="/cli">for Linux x86-64</a> <i>(from <a href="https://github.com/usbtemp/usbtemp-cli/releases/latest">usbtemp-cli latest binary release</a>)</i></li>
 </ul>
 
 <h3>Picture of normal version</h3>
@@ -123,6 +123,7 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 <a href="images/usbtemp_2000.jpg"><img src="images/usbtemp_667_web.jpg" alt="USB Thermometer product image" class="image" /></a>
 <a href="images/usbtemp_waterproof_3400.jpg">picture of waterproof (stainless steel) version</a>, <a href="images/usbtemp_waterproof_1720_cu.jpg">picture of waterproof (copper) version</a>
 </p>
+<p>Thermometers based on CP2102 USB bridge interface comes with plug in violet color.</p>
 
 <h2>Support</h2>
 <p>
