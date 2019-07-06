@@ -16,7 +16,7 @@
     i{font-size:70%;}
     p{text-align:justify;}
     .image{clear:both;display:block;margin:0 auto;max-width:90%;}
-    header img{height:3em;}
+    header img{display:block;height:3em;margin:0 auto;}
     .logos img{height:3em;}
     .logos img+img{margin-left:1em;}
     h1{border-bottom:2px solid #23415a;}
@@ -34,19 +34,19 @@
 {
   "@context": "http://schema.org",
   "@type": "Organization",
-  "name": "USBtemp",
-  "legalName": "USBtemp",
+  "name": "USBTEMP",
+  "legalName": "USBTEMP",
   "foundingDate": "2017",
   "url": "https://usbtemp.com/",
-  "logo": "https://usbtemp.com/usbtemp_logo.png",
-  "image": "https://usbtemp.com/usbtemp_logo.png",
+  "logo": "https://usbtemp.com/usbtemp.svg",
+  "image": "https://usbtemp.com/usbtemp.svg",
   "sameAs": "https://github.com/usbtemp"
 }
 </script>
 
 <header>
 
-<img src="logos/usbtemp_logo.png" alt="USBtemp logo" />
+<img src="logos/usbtemp.svg" alt="USBTEMP logo" />
 
 </header>
 
@@ -63,7 +63,7 @@
     "bestRating": "5",
     "worstRating": "1"
   },
-  "brand": "USBtemp",
+  "brand": "USBTEMP",
   "description": "Temperature Measurement USB Data Acquisition Device",
   "image": "https://usbtemp.com/images/usbtemp_667_web.jpg",
   "mpn": "USB-TEMP",
@@ -81,7 +81,7 @@
 
 <h1>USB Thermometer</h1>
 <p>
-Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and USB bridge interface (PL-2303TA or CP2102), provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
+Digital thermometer probe with USB connection, based on DS18B20 1–wire probe and USB bridge interface (PL2303TA or CP2102), provides 9-bit to 12-bit temperature measurements. Each thermometer has an unique 64-bit serial code stored inside ROM.
 </p>
 <p>
 Perfect solution for monitoring air temperature at home, in a greenhouse or in a server room. Measurements are more accurate since the probe is not in the same housing as the USB plug. It is possible to put the probe on longer cable, or make it waterproof by putting it inside a stainless steel or copper tube. Desipe probe's wide measuring range it is advisable its usage between –20 and +85 degrees Celsius. Unit of readout value (Celsius or Fahrenheit) depends on software used.
@@ -97,10 +97,11 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 <li>Works under <strong>Linux™</strong> (Debian, Fedora, Mageia, Manjaro, Openwrt/LEDE, Rosa, Ubuntu etc.) and <strong>Windows®</strong> XP SP2, Vista, 7, 8, 8.1 and 10. CPU architecture independent: works also on MIPS and ARM (e.g. Raspberry Pi).</li>
 <li>Supported by dedicated open source software (released under MIT license) at <a href="https://github.com/usbtemp" rel="nofollow">github.com/usbtemp</a> (C, C++, C#, node.js and python 3 libraries with examples) and wide range of third-party tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp.</li>
 </ul>
-<h3>Versions (default values)</h3>
+<h3>Models</h3>
+<p>Here are listed differences to distinguish between USB bridge interfaces, which could be changed on request.</p>
 <ul>
-<li>Shell color: blue (PL-2303TA) or violet (CP2102)</li>
-<li>Cable length: approximate 82 cm (PL-2303TA) or 92 cm (CP2102)</li>
+<li>Plug (shell) color: <strong>blue</strong> (PL2303TA) or <strong>violet</strong> (CP2102)</li>
+<li>Cable length: approximate <strong>82 cm</strong> (PL2303TA) or <strong>92 cm</strong> (CP2102)</li>
 </ul>
 
 <h3>More information</h3>
@@ -142,7 +143,7 @@ Technical support is available on mail <em>support@[this domain]</em>.
 
 <h2>Buy</h2>
 <p>
-Thermometer could be ordered securely online with PayPal. Order will be shipped as registered mail (with tracking). Shipping is flat rate (does not depend on the number of thermometers ordered).
+Thermometer (PL2303TA, blue plug and 82 cm cable) could be ordered securely online with PayPal. Order will be shipped as registered mail (with tracking). Shipping is flat rate (does not depend on the number of thermometers ordered).
 </p>
 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick" />
