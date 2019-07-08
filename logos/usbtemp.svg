@@ -5,11 +5,11 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   width="138cm"
-   height="22cm"
-   viewBox="0 0 138 22"
+   id="svg8"
    version="1.1"
-   id="svg8">
+   viewBox="0 0 144 22"
+   height="22cm"
+   width="144cm">
   <title
      id="title">usbtemp</title>
   <metadata
@@ -27,24 +27,24 @@
   <defs
      id="defs" />
   <path
-     id="u"
-     d="M 0,2 V 20 H 19 V 2 H 15 V 16 H 4 V 2 z" />
+     d="M 0,2 V 20 H 19 V 2 H 15 V 16 H 4 V 2 Z"
+     id="u" />
   <path
-     id="s"
-     d="M 20,2 H 39 V 6 H 24 V 9 H 39 V 20 H 20 V 16 H 35 V 13 H 20 z" />
+     d="M 21,2 H 40 V 6 H 25 V 9 H 40 V 20 H 21 V 16 H 36 V 13 H 21 Z"
+     id="s" />
   <path
-     d="M 59,20 H 40 V 0 h 4 V 16 H 55 V 6 H 46 V 2 h 13 z"
-     id="b" />
+     id="b"
+     d="m 61,20 h -19 V 0 h 4 v 16 h 11 V 6 h -9 V 2 h 13 z" />
   <path
-     d="m 60,2 h 19 v 4 h -7.5 v 14 h -4 V 6 H 60 z"
-     id="t" />
+     id="t"
+     d="m 63,2 h 19 v 4 h -7.5 v 14 h -4 V 6 h -7.5 z" />
   <path
-     d="M 80,20 V 2 H 99 V 6 H 84 v 3 h 15 v 4 H 84 v 3 h 15 v 4 z"
-     id="e" />
+     id="e"
+     d="M 84,20 V 2 H 103 V 6 H 88 V 9 H 103 v 4 H 88 v 3 H 103 v 4 z" />
   <path
-     id="m"
-     d="m 100,2 h 18 v 18 h -4 V 6 h -3 v 14 h -4 V 6 h -3 v 14 h -4 z" />
+     d="m 105,2 h 18 v 18 h -4 V 6 h -3 v 14 h -4 V 6 h -3 v 14 h -4 z"
+     id="m" />
   <path
-     id="p"
-     d="m 138,2 h -19 v 20 h 4 V 6 h 11 v 10 h -9 v 4 h 13 z" />
+     d="m 144,2 h -19 v 20 h 4 V 6 h 11 v 10 h -9 v 4 h 13 z"
+     id="p" />
 </svg>
