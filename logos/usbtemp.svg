@@ -2,30 +2,30 @@
 <svg
    xmlns="http://www.w3.org/2000/svg"
    version="1.1"
-   viewBox="0 0 144 22"
+   viewBox="0 0 149 22"
    height="22cm"
-   width="144cm">
+   width="149cm">
   <title
      id="title">usbtemp</title>
   <path
-     d="M 0,2 V 20 H 19 V 2 H 15 V 16 H 4 V 2 Z"
+     d="M 2,2 v 18 h 19 v -18 h -4 v 14 h -11 v -14 z"
      id="u" />
   <path
-     d="M 21,2 H 40 V 6 H 25 V 9 H 40 V 20 H 21 V 16 H 36 V 13 H 21 Z"
+     d="M 23,2 h 19 v 4 h -15 v 3 h 15 v 11 h -19 v -4 h 15 v -3 h -15 z"
      id="s" />
   <path
-     d="m 61,20 h -19 V 0 h 4 v 16 h 11 V 6 h -9 V 2 h 13 z"
+     d="m 44,0 v 20 h 19 v -18 h -13 v 4 h 9 v 10 h -11 v -16 z"
      id="b" />
   <path
-     d="m 63,2 h 19 v 4 h -7.5 v 14 h -4 V 6 h -7.5 z"
+     d="m 65,2 v 4 h 7.5 v 14 h 4 v -14 h 7.5 v -4 z"
      id="t" />
   <path
-     d="M 84,20 V 2 H 103 V 6 H 88 V 9 H 103 v 4 H 88 v 3 H 103 v 4 z"
+     d="M 86,2 v 18 h 19 v -4 h -15 v -3 h 15 v -4 h -15 v -3 h 15 v -4 z"
      id="e" />
   <path
-     d="m 105,2 h 18 v 18 h -4 V 6 h -3 v 14 h -4 V 6 h -3 v 14 h -4 z"
+     d="m 107,2 v 18 h 4 v -14 h 3.5 v 14 h 4 v -14 h 3.5 v 14 h 4 v -18 z"
      id="m" />
   <path
-     d="m 144,2 h -19 v 20 h 4 V 6 h 11 v 10 h -9 v 4 h 13 z"
+     d="m 128,2 v 20 h 4 v -16 h 11 v 10 h -9 v 4 h 13 v -18 z"
      id="p" />
 </svg>
