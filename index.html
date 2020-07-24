@@ -13,7 +13,7 @@
   <style>
     body{background:#eeeeee;font-family:"CharterBT-Roman",serif;font-size:13pt;}
     header,main,footer{max-width:800px;display:block;margin:0 auto;width:98%;}
-    footer{padding:2ex 0px;text-align:center;}
+    footer{font-size:80%;padding:2ex 0px;text-align:center;}
     a{color:#23415a;}
     i{font-size:70%;}
     p{text-align:justify;}
@@ -31,6 +31,16 @@
     .colorbox{display:inline-block;height:1em;margin-bottom:-0.2em;width:1em;}
     .black{background:#101010;}
     .indigo{background:#5ea1dc;}
+    ul#countries{padding:0;}
+    ul#countries li{border:1px solid black;display:inline-block;padding:0 0.5ex;}
+    ul#countries li{margin:1px;}
+    footer div{display:inline;padding:0 0.5em;position:relative;}
+    footer span{background:#101010;}
+    footer .a{margin-right:0.5em;}
+    footer .c{margin-left:0.5em;}
+    footer div .tooltiptext{bottom:125%;color:#fff;left:50%;margin-left:-10em;opacity:0;padding:1ex 0;position:absolute;text-align:center;transition:opacity 0.3s;visibility:hidden;width:20em;z-index:1;}
+    footer div:hover .tooltiptext{opacity:1;visibility:visible;}
+    footer div .tooltiptext b::after{content: "d.o.o., Slovenia";margin-left:2pt;}
   </style>
 </head>
 <body>
@@ -152,12 +162,25 @@ Technical support is available on mail <em>support@[this domain]</em>.
 
 <h2>Buy</h2>
 <p>
-Thermometer (PL-2303TA, normal: indigo <span class="colorbox indigo"></span> plug and 82 cm cable, waterproof: black <span class="colorbox black"></span> plug and 92 cm cable) could be ordered securely online with PayPal. Orders with value greater than 15 EUR or 18 USD will be shipped as registered mail (with tracking), otherwise 1 EUR or 1.5 USD will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered).
+Thermometer (PL-2303TA, normal: indigo <span class="colorbox indigo"></span> plug and 82 cm cable, waterproof: black <span class="colorbox black"></span> plug and 92 cm cable) could be ordered securely online with PayPal (due to PayPal fee, 1 EUR (1.2 USD) will be charged for handling). Orders with value (excl. shipping) greater than 20 EUR (23 USD) will be shipped as registered mail (with tracking), otherwise 1 EUR (1.2 USD) will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered).
 </p>
 <p>
-Due to a temporary suspension of mail service to some countries, please write to order@[this domain] to review delivery options.
+Due to a temporary suspension of mail service to some countries, shipping and ordering through the form below is possible only to the following countries <small>(in ISO 3166-1 alpha-2 notation)</small>.
+<ul id="countries"><li>AT</li><li>BE</li><li>BG</li><li>CA</li><li>CH</li><li>CY</li><li>CZ</li><li>DE</li><li>DK</li><li>EE</li><li>EG</li><li>ES</li><li>FI</li><li>FR</li><li>GR</li><li>HK</li><li>HU</li><li>IE</li><li>JP</li><li>LI</li><li>LT</li><li>LU</li><li>LV</li><li>NL</li><li>NO</li><li>NZ</li><li>PL</li><li>PT</li><li>RO</li><li>SK</li><li>SE</li><li>SG</li><li>UK</li><li>US</li></ul>
 </p>
-<!--
+<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="AVH6CP64PX3F2">
+<input type="hidden" name="on0" value="version">
+<label for="oseur">EUR - Select version:</label>
+<select name="os0" id="oseur">
+  <option value="normal">normal (8.20 EUR piece) + shipping &amp; handling (5.5 EUR) </option>
+  <option value="waterproof">waterproof (10.50 EUR piece) + shipping &amp; handling (5.5 EUR)</option>
+</select>
+<input type="hidden" name="currency_code" value="EUR">
+<input type="image" src="btn_cart_SM.png" name="submit" alt="PayPal">
+</form>
+
 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick" />
 <input type="hidden" name="hosted_button_id" value="ZQEWWRMZQS9M6" />
@@ -165,31 +188,23 @@ Due to a temporary suspension of mail service to some countries, please write to
 <input type="hidden" name="image_url" value="https://usbtemp.com/usbtemp_logo.png" />
 <label for="osusd">USD - Select version:</label>
 <select name="os0" id="osusd">
-  <option value="normal">normal 9.80 USD + shipping</option>
-  <option value="waterproof">waterproof 12.80 USD + shipping</option>
+  <option value="normal">normal (9.80 USD piece) + shipping &amp; handling (6.5 USD)</option>
+  <option value="waterproof">waterproof (12.60 USD piece) + shipping &amp; handling (6.5 USD)</option>
 </select>
 <input type="hidden" name="currency_code" value="USD" />
-<input type="image" src="btn_cart_LG.png" name="submit" alt="PayPal" />
+<input type="image" src="btn_cart_SM.png" name="submit" alt="PayPal" />
 </form>
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="AVH6CP64PX3F2">
-<input type="hidden" name="on0" value="version">
-<label for="oseur">EUR - Select version:</label>
-<select name="os0" id="oseur">
-  <option value="normal">normal 8.10 EUR + shipping</option>
-  <option value="waterproof">waterproof 10.50 EUR + shipping</option>
-</select>
-<input type="hidden" name="currency_code" value="EUR">
-<input type="image" src="btn_cart_LG.png" name="submit" alt="PayPal">
-</form>
--->
-
+<p><small>
+Having both version inside the same cart might be expressed as double amount for the shipping &amp; handling. Second amount (and in case of two or more orders on the same day) will be refunded after purchase at order review before shipping.
+</small></p>
+<p>
+For remaining countries, cost clarification, SEPA payment (no handling fee) or business purchase please write to order@[this domain] to review delivery options.
+</p>
 </main>
 
 <footer>
 
-<small>2020 KEL, Slovenia</small>
+<div><span class="colorbox a"></span><span class="colorbox a"></span><span class="colorbox a"></span><span class="colorbox a c"></span><span class="colorbox c"></span><span class="colorbox c"></span><span class="colorbox c"></span><span class="colorbox c"></span><span class="tooltiptext">2020, <b>314</b></span></div>
 
 </footer>
 
