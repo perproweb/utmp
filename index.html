@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Thermometer -55 ~ +125°C with USB connection</title>
   <style>
-    @font-face{font-display:swap;font-family:"CharterBT-Roman";src:url("fonts/charter-bt.eot");src:url("fonts/charter-bt.eot?#iefix")format("embedded-opentype"),url("fonts/charter-bt.woff")format("woff"),url("fonts/charter-bt.ttf")format("truetype"),url("fonts/charter-bt.svg#charter-bt")format("svg");font-style:normal;font-weight:normal;}
+    @font-face{font-display:swap;font-family:"CharterBT-Roman";src:url("fonts/charter-bt.eot");src:url("fonts/charter-bt.eot?#iefix")format("embedded-opentype"),url("fonts/charter-bt.woff2")format("woff2"),url("fonts/charter-bt.ttf")format("truetype"),url("fonts/charter-bt.svg#charter-bt")format("svg");font-style:normal;font-weight:normal;}
   </style>
   <style>
     body{background:#eeeeee;font-family:"CharterBT-Roman",serif;font-size:13pt;}
@@ -24,16 +24,16 @@
     h1{border-bottom:2px solid #23415a;}
     @media(max-width: 960px){
       ul{list-style-type:none;padding-left:0;}
-      ul li+li{margin-top:0.5em;}
+      li+li{margin-top:0.5em;}
+      li i{display:none;}
     }
     form+form{margin-top:0.5em;}
     input[type="image"]{vertical-align:middle;}
     .colorbox{display:inline-block;height:1em;margin-bottom:-0.2em;width:1em;}
     .black{background:#101010;}
     .indigo{background:#5ea1dc;}
-    ul#countries{padding:0;}
-    ul#countries li{border:1px solid black;display:inline-block;padding:0 0.5ex;}
-    ul#countries li{margin:1px;}
+    #countries{padding:0;}
+    #countries li{border:1px solid black;display:inline-block;margin:1px;padding:0 0.5ex;}
     footer div{display:inline;padding:0 0.5em;position:relative;}
     footer span{background:#101010;}
     footer .a{margin-right:0.5em;}
@@ -133,15 +133,15 @@ These values could be changed on request: put probe on longer cable, or make it 
 
 <h2 id="software">Drivers and software</h2>
 <ul>
-<li><a href="https://fs3.kel.si/drivers/pl2303-v1200.exe">Prolific (PL2303) driver for Windows</a> <i>(from <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41" rel="noreferrer" target="_blank">prolific.com.tw</a>)</i></li>
-<li>Silabs CP2102 driver <a href="https://fs3.kel.si/drivers/cp210x_win7_8_v6-7-6.zip">for Windows 7 &amp; 8</a>, <a href="https://fs3.kel.si/drivers/cp210x_win10_v10-1-7.zip">for Windows 10</a>  <i>(from <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferrer" target="_blank">silabs.com</a>)</i></li>
-<li>Maxim 1-wire driver <a href="https://fs3.kel.si/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://fs3.kel.si/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html" rel="noreferrer" target="_blank">Maxim Integrated</a>)</i></li>
+<li><a href="https://fs3.kel.si/drivers/pl2303-v1200.exe">Prolific (PL2303) driver for Windows</a> <i>(from <a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41" rel="noreferrer nofollow" target="_blank">prolific.com.tw</a>)</i></li>
+<li>Silabs CP2102 driver <a href="https://fs3.kel.si/drivers/cp210x_win7_8_v6-7-6.zip">for Windows 7 &amp; 8</a>, <a href="https://fs3.kel.si/drivers/cp210x_win10_v10-1-7.zip">for Windows 10</a>  <i>(from <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferrer nofollow" target="_blank">silabs.com</a>)</i></li>
+<li>Maxim 1-wire driver <a href="https://fs3.kel.si/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://fs3.kel.si/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html" rel="noreferrer nofollow" target="_blank">Maxim Integrated</a>)</i></li>
 </ul>
 <ul>
-<li><a href="https://fs3.kel.si/software/digitemp.exe">digitemp.exe (v1.7)</a> <i>(from <a href="https://digitemp.com/software/windows/index.html" rel="noreferrer" target="_blank">digitemp.com</a>)</i></li>
-<li><a href="https://fs3.kel.si/software/onewireviewer.zip">Maxim 1-wire viewer for Windows</a> (needs Maxim 1-wire driver &amp; Java RTE) <i>(from <a href="https://www.maximintegrated.com/en/design/design-tools/applications-software/product-software/ibutton/software/1wire/owv_offline_instructions.html" rel="noreferrer" target="_blank">Maxim Integrated</a>)</i></li>
-<li><a href="https://fs3.kel.si/software/logtemp-v225.exe">LogTemp (v2.25)</a> (needs Maxim 1-wire driver) <i>(from <a href="https://www.mrsoft.fi/ohj01en.htm" rel="noreferrer" target="_blank">MR Soft</a>)</i></li>
-<li><a href="https://github.com/usbtemp/utmp-cli/">utmp-cli</a> <a href="/cli.exe">for Windows</a>, <a href="/cli">for Linux x86-64</a>, <a href="/cli-arm32">for Linux ARM32</a> <i>(from <a href="https://github.com/usbtemp/utmp-cli/releases/latest" rel="noreferrer" target="_blank">utmp-cli latest binary release</a>)</i></li>
+<li><a href="https://fs3.kel.si/software/digitemp.exe">digitemp.exe (v1.7)</a> <i>(from <a href="https://digitemp.com/software/windows/index.html" rel="noreferrer nofollow" target="_blank">digitemp.com</a>)</i></li>
+<li><a href="https://fs3.kel.si/software/onewireviewer.zip">Maxim 1-wire viewer for Windows</a> (needs Maxim 1-wire driver &amp; Java RTE) <i>(from <a href="https://www.maximintegrated.com/en/design/design-tools/applications-software/product-software/ibutton/software/1wire/owv_offline_instructions.html" rel="noreferrer nofollow" target="_blank">Maxim Integrated</a>)</i></li>
+<li><a href="https://fs3.kel.si/software/logtemp-v225.exe">LogTemp (v2.25)</a> (needs Maxim 1-wire driver) <i>(from <a href="https://www.mrsoft.fi/ohj01en.htm" rel="noreferrer nofollow" target="_blank">MR Soft</a>)</i></li>
+<li><a href="https://github.com/usbtemp/utmp-cli/">utmp-cli</a> <a href="/cli.exe">for Windows</a>, <a href="/cli">for Linux x86-64</a>, <a href="/cli-arm32">for Linux ARM32</a> <i>(from <a href="https://github.com/usbtemp/utmp-cli/releases/latest" rel="noreferrer nofollow" target="_blank">utmp-cli latest binary release</a>)</i></li>
 </ul>
 
 <h3>Picture of normal version</h3>
@@ -155,7 +155,7 @@ These values could be changed on request: put probe on longer cable, or make it 
 Technical support is available on mail <em>support@[this domain]</em>.
 </p>
 <div class="logos">
-<a href="https://play.google.com/store/apps/details?id=si.perpro.android.utmp_basic" rel="noreferrer" target="_blank"><img src="logos/googleplay.png" alt="Our app is now available on Google Play." /></a>
+<a href="https://play.google.com/store/apps/details?id=si.perpro.android.utmp_basic" rel="noreferrer nofollow" target="_blank"><img src="logos/googleplay.png" alt="Our app is now available on Google Play." /></a>
 <img src="logos/W10_comp.png" alt="Windows 10 compatible" />
 <a href="https://github.com/usbtemp/usbtemp-python3" rel="noreferrer" target="_blank"><img src="logos/python.svg" alt="python library available" /></a>
 <a href="https://github.com/usbtemp/usbtemp-nodejs" rel="noreferrer" target="_blank"><img src="logos/node.svg" alt="nodejs library available" /></a>
