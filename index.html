@@ -12,7 +12,7 @@
   </style>
   <style>
     body{background:#eeeeee;font-family:"CharterBT-Roman",serif;font-size:13pt;}
-    header,main,footer{max-width:800px;display:block;margin:0 auto;width:98%;}
+    header,main,footer{max-width:800px;display:block;margin:0 auto;}
     footer{font-size:80%;padding:2ex 0px;text-align:center;}
     a{color:#23415a;}
     i{font-size:70%;}
@@ -28,6 +28,7 @@
       li i{display:none;}
     }
     form+form{margin-top:0.5em;}
+    select{max-width:95%;width:auto;}
     input[type="image"]{vertical-align:middle;}
     .colorbox{display:inline-block;height:1em;margin-bottom:-0.2em;width:1em;}
     .black{background:#101010;}
@@ -70,7 +71,7 @@
 
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "http://schema.org/",
   "@type": "Product",
   "aggregateRating": {
     "@type": "AggregateRating",
@@ -79,17 +80,22 @@
     "bestRating": "5",
     "worstRating": "1"
   },
-  "brand": "USBTEMP",
+  "brand": {
+    "@type": "Brand",
+    "name": "USBTEMP"
+  },
   "description": "Temperature Measurement USB Data Acquisition Device",
   "image": "https://usbtemp.com/images/usbtemp_normal_667.jpg",
   "mpn": "USB-TEMP",
   "name": "USB Digital Thermometer",
   "offers": {
     "@type": "Offer",
+    "url": "https://usbtemp.com/",
     "availability": "http://schema.org/InStock",
     "itemCondition": "http://schema.org/NewCondition",
     "price": "10.0",
-    "priceCurrency": "USD"
+    "priceCurrency": "USD",
+    "priceValidUntil": "2021-12-31"
   },
   "sku": "USB-TEMP"
 }
