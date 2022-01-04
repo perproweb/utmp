@@ -34,9 +34,10 @@
     form+form{margin-top:0.5em;}
     select{max-width:95%;width:auto;}
     input[type="image"]{vertical-align:middle;}
-    .colorbox{display:inline-block;height:1em;margin-bottom:-0.2em;width:1em;}
+    .colorbox{display:inline-block;height:0.9em;margin:-0.1em 0em;width:0.9em;}
     .black{background:#101010;}
     .indigo{background:#5ea1dc;}
+    .white{background:#fefefe;}
     #countries{padding:0;}
     #countries li{border:1px solid black;display:inline-block;margin:1px;padding:0 0.5ex;}
     footer div{display:inline;padding:0 0.5em;position:relative;}
@@ -45,7 +46,7 @@
     footer .b{margin-left:0.5em;}
     footer div .tooltiptext{bottom:125%;color:#fff;left:50%;margin-left:-10em;opacity:0;padding:1ex 0;position:absolute;text-align:center;transition:opacity 0.3s;visibility:hidden;width:20em;z-index:1;}
     footer div:hover .tooltiptext{opacity:1;visibility:visible;}
-    footer div .tooltiptext::before{content: "2021,";margin-right:2pt;}
+    footer div .tooltiptext b::before{content: "2022,";margin-right:2pt;}
     footer div .tooltiptext b::after{content: "d.o.o., Slovenia";margin-left:2pt;}
   </style>
 </head>
@@ -99,7 +100,7 @@
     "itemCondition": "http://schema.org/NewCondition",
     "price": "10.0",
     "priceCurrency": "USD",
-    "priceValidUntil": "2021-12-31"
+    "priceValidUntil": "2022-01-31"
   },
   "sku": "USB-TEMP"
 }
@@ -118,7 +119,7 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 Here are listed values of default USB thermometer configuration, depending on selected USB bridge interface: PL2303TA or CP2102.
 </p>
 <ul>
-<li>Plug (shell) color: <strong>indigo (blue)</strong> or <strong>black</strong> (PL2303TA); <strong>magenta</strong> (CP2102)</li>
+<li>Plug (shell) color: <strong>indigo (blue)</strong>, <strong>white</strong> or <strong>black</strong> (PL2303TA); <strong>magenta</strong> (CP2102)</li>
 <li>Cable length (between plug and sensor): approximate <strong>82 cm</strong> (PL2303TA); <strong>92 cm</strong> (CP2102)</li>
 </ul>
 <p>
@@ -177,21 +178,21 @@ Technical support is available on mail <em>support@[this domain]</em>.
 
 <h2>Buy</h2>
 <p>
-USB Thermometer (PL2303TA, <em>normal</em>: indigo <span class="colorbox indigo"></span> plug and 82 cm cable, <em>waterproof</em>: black <span class="colorbox black"></span> plug, stainless steel shell, and 92 cm cable) could be ordered securely online with PayPal.
+USB Thermometer (PL2303TA, <em>normal</em>: white <span class="colorbox white"></span> plug and 82 cm cable, <em>waterproof</em>: black <span class="colorbox black"></span> plug, stainless steel shell, and 92 cm cable) could be ordered securely online with PayPal.
 </p>
 <p>
 Due to a temporary suspension of mail service to some countries, ordering through the form below is possible only to the following countries <small>(in ISO 3166-1 alpha-2 notation)</small>.
 </p>
-<ul id="countries"><li>AT</li><li>AU</li><li>BE</li><li>BG</li><li>CA</li><li>CH</li><li>CY</li><li>CZ</li><li>DE</li><li>DK</li><li>EE</li><li>EG</li><li>ES</li><li>FI</li><li>FR</li><li>GR</li><li>HK</li><li>HU</li><li>IE</li><li>IS</li><li>JP</li><li>LI</li><li>LT</li><li>LU</li><li>LV</li><li>MC</li><li>MT</li><li>NL</li><li>NO</li><li>NZ</li><li>PL</li><li>PT</li><li>RO</li><li>SK</li><li>SE</li><li>SG</li><li>UK</li><li>US</li></ul>
+<ul id="countries"><li>AD</li><li>AT</li><li>AU</li><li>BE</li><li>BG</li><li>CA</li><li>CH</li><li>CY</li><li>CZ</li><li>DE</li><li>DK</li><li>EE</li><li>EG</li><li>ES</li><li>FI</li><li>FR</li><li>GR</li><li>HK</li><li>HR</li><li>HU</li><li>IE</li><li>IS</li><li>IT</li><li>JP</li><li>LI</li><li>LT</li><li>LU</li><li>LV</li><li>MC</li><li>MT</li><li>NL</li><li>NO</li><li>NZ</li><li>PL</li><li>PT</li><li>RO</li><li>SK</li><li>SE</li><li>SG</li><li>SI</li><li>UK</li><li>US</li><li>TH</li></ul>
 
 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="AVH6CP64PX3F2">
 <input type="hidden" name="on0" value="version">
-<label for="oseur">EUR - Select version:</label>
+<label for="oseur">EUR currency:</label>
 <select name="os0" id="oseur">
-  <option value="normal">normal (8.50 EUR piece) + shipping &amp; handling (5.5 EUR) </option>
-  <option value="waterproof">waterproof (10.80 EUR piece) + shipping &amp; handling (5.5 EUR)</option>
+  <option value="normal">normal (8.70 EUR piece) + shipping &amp; handling (7.0 EUR) </option>
+  <option value="waterproof">waterproof (11.00 EUR piece) + shipping &amp; handling (7.0 EUR)</option>
 </select>
 <input type="hidden" name="currency_code" value="EUR">
 <input type="image" src="btn_cart_SM.png" name="submit" alt="PayPal">
@@ -202,20 +203,16 @@ Due to a temporary suspension of mail service to some countries, ordering throug
 <input type="hidden" name="hosted_button_id" value="ZQEWWRMZQS9M6" />
 <input type="hidden" name="on0" value="Version" />
 <input type="hidden" name="image_url" value="https://usbtemp.com/usbtemp_logo.png" />
-<label for="osusd">USD - Select version:</label>
+<label for="osusd">USD currency:</label>
 <select name="os0" id="osusd">
-  <option value="normal">normal (10.00 USD piece) + shipping &amp; handling (6.5 USD)</option>
-  <option value="waterproof">waterproof (12.80 USD piece) + shipping &amp; handling (6.5 USD)</option>
+  <option value="normal">normal (10.00 USD piece) + shipping &amp; handling (8.0 USD)</option>
+  <option value="waterproof">waterproof (12.80 USD piece) + shipping &amp; handling (8.0 USD)</option>
 </select>
 <input type="hidden" name="currency_code" value="USD" />
 <input type="image" src="btn_cart_SM.png" name="submit" alt="PayPal" />
 </form>
 <p><small>
-Orders with value (excl. shipping &amp; handling) greater than 22 EUR (26 USD) will be shipped with tracking number, otherwise 1 EUR (1.2 USD) will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered).
-</small>
-<br />
-<small>
-Having both version inside the same cart might be expressed as double amount for the shipping &amp; handling. Second amount (and in case of two or more orders on the same day) will be refunded after purchase at order review.
+Orders with value (excl. shipping &amp; handling) greater than 23 EUR (26 USD) will be shipped with tracking number, otherwise 2 EUR (2.2 USD) will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered). Having both version inside the same cart might be expressed as double amount for the shipping &amp; handling. Second amount (and in case of two or more orders on the same day) will be refunded after purchase at order review.
 </small></p>
 <p>
 For remaining countries, cost clarification, customizations, different USB thermometer configuration, SEPA payment or business purchase please write to sales@[this domain] to review feasibility and delivery options. <a href="terms.pdf">Terms of purchase</a>
