@@ -116,11 +116,11 @@ Perfect solution for monitoring air temperature at home, in a greenhouse or in a
 
 <h2>Models (configurations)</h2>
 <p>
-Here are listed values of default USB thermometer configuration, depending on selected USB bridge interface: PL2303TA, PL2303GL or CP2102.
+Here are listed values of default USB thermometer configuration, depending on selected USB bridge interface: PL2303GL or CP2102.
 </p>
 <ul>
-<li>Plug (shell) color: <strong>indigo (blue)</strong>, <strong>white</strong> or <strong>black</strong> (PL2303TA and PL2303GL); <strong>magenta</strong> (CP2102)</li>
-<li>Cable length (between plug and sensor): approximate <strong>82 cm</strong> (PL2303TA and PL2303GL); <strong>92 cm</strong> (CP2102)</li>
+<li>Plug (shell) color: <strong>indigo (blue)</strong>, <strong>white</strong> or <strong>black</strong> (PL2303GL); <strong>magenta</strong> (CP2102)</li>
+<li>Cable length (between plug and sensor): approximate <strong>82 cm</strong> (PL2303GL); <strong>92 cm</strong> (CP2102)</li>
 </ul>
 <p>
 These values could be changed on request, e.g. put probe on longer cable, or make it waterproof by putting the sensor inside a stainless steel or copper tube, so that the temperature of a liquid, e.g. water in a swimming pool, could be measured.
@@ -140,20 +140,25 @@ These values could be changed on request, e.g. put probe on longer cable, or mak
 <li>Accuracy: <strong>0.5 °C</strong> (<strong>0.9 °F</strong>) (from –10 °C to +85 °C), <strong>2 °C</strong> otherwise</li>
 <li>Resolution: <strong>0.0625 °C</strong> (<strong>0.1125 °F</strong>) at 12-bit</li>
 <li>Data record frequency: <strong>above 750 milliseconds</strong> at 12-bit</li>
-<li>Works under <strong>Linux™</strong> (Debian, Fedora, Mageia, Manjaro, Openwrt/LEDE, Rosa, Ubuntu etc.) and <strong>Windows®</strong> XP SP2, Vista, 7, 8, 8.1 and 10. CPU architecture independent: works also on MIPS and ARM (e.g. Raspberry Pi) and <strong>Android</strong> devices (which support USB host mode).</li>
+<li>Works under <strong>Linux™</strong> (Debian, Fedora, Mageia, Manjaro, Openwrt/LEDE, Rosa, Ubuntu etc.) and <strong>Windows®</strong> XP SP2, Vista, 7, 8, 8.1, 10 and 11. CPU architecture independent: works also on MIPS and ARM (e.g. Raspberry Pi) and <strong>Android</strong> devices (which support USB host mode).</li>
 <li>Supported by dedicated open source software (released under MIT license) at <a href="https://github.com/usbtemp" rel="noreferrer" target="_blank">github.com/usbtemp</a> (C, C++, C#, node.js and python 3 libraries with examples), <a href="https://play.google.com/store/apps/details?id=si.perpro.android.utmp_basic" rel="noreferrer nofollow" target="_blank">UTMP Basic</a>, and wide range of third-party tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp, pydigitemp.</li>
 </ul>
+<p>
+<small>
+Note: This information describes the current, 2<sup>nd</sup> generation of USB thermometer based on PL2303GL integrated circuit available after 10<sup>th</sup> June 2022. <a href="https://fs3.kel.si/product_sheets/usb-thermometer-ta.pdf">Product sheet of previous generation</a> (pdf)</li>
+</small>
+</p>
 
 <h3>More information</h3>
 <ul>
-<li><a href="https://fs3.kel.si/product_sheets/usb-thermometer.pdf">Product sheet</a> (pdf)</li>
+<li><a href="https://fs3.kel.si/product_sheets/usb-thermometer-gl.pdf">Product sheet</a> (pdf)</li>
 <li><a href="https://fs3.kel.si/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a> (pdf)</li>
 <li><a href="https://fs3.kel.si/application_notes/logtemp.pdf">LogTemp setup</a> (pdf), <a href="https://fs3.kel.si/application_notes/utmp_snmp.pdf">SNMP setup</a> (pdf), <a href="https://fs3.kel.si/application_notes/1wire_owfs_nodered.pdf">NODE-RED setup</a> (pdf)</li>
 </ul>
 
 <h2 id="software">Drivers and software</h2>
 <ul>
-<li><a href="https://fs3.kel.si/drivers/pl2303-v204.exe">Prolific (PL2303) driver for Windows (ver. 2.0.4)</a>, <a href="https://fs3.kel.si/drivers/pl2303-v1200.exe">(ver. 1.20)</a> <i>(from prolific.com.tw)</i></li>
+<li><a href="https://fs3.kel.si/drivers/pl2303-v204.exe">Prolific (PL2303) driver for Windows (ver. 2.0.4)</a>, <a href="https://fs3.kel.si/drivers/pl2303-v1200.exe">(ver. 1.20)</a> <i>(from <a href="https://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41" rel="noreferrer nofollow" target="_blank">prolific.com.tw</a>)</i></li>
 <li>Silabs CP2102 driver <a href="https://fs3.kel.si/drivers/cp210x_win11_v11-1-0.zip">for Windows 11</a>, <a href="https://fs3.kel.si/drivers/cp210x_win10_v10-1-7.zip">for Windows 10</a>, <a href="https://fs3.kel.si/drivers/cp210x_win7-8_v6-7-6.zip">for Windows 7 &amp; 8</a> <i>(from <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers" rel="noreferrer nofollow" target="_blank">silabs.com</a>)</i></li>
 <li>Maxim 1-wire driver <a href="https://fs3.kel.si/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://fs3.kel.si/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.maximintegrated.com/en/products/ibutton-one-wire/one-wire/software-tools/drivers/download-1-wire-ibutton-drivers-for-windows.html" rel="noreferrer nofollow" target="_blank">Maxim Integrated</a>)</i></li>
 </ul>
@@ -169,7 +174,9 @@ These values could be changed on request, e.g. put probe on longer cable, or mak
 Technical support is available on mail <em>support@[this domain]</em>.
 </p>
 <p>
-There is officially no support for PL2303TA in Windows 11, but there is a workaround by using older driver (offered on this website) and disabling Windows Update driver updates.
+<small>
+There is officially no support for PL2303TA, used in previous generation of USB thermometer, in Windows 11, but there is a workaround by using older driver (offered on this website) and disabling Windows Update driver updates.
+</small>
 </p>
 <div class="logos">
 <a href="https://play.google.com/store/apps/details?id=si.perpro.android.utmp_basic" rel="noreferrer nofollow" target="_blank"><img src="logos/googleplay.png" alt="Our app is now available on Google Play." /></a>
@@ -181,11 +188,8 @@ There is officially no support for PL2303TA in Windows 11, but there is a workar
 
 <h2>Buy</h2>
 <p>
-USB Thermometer (<em>normal</em>: PL2303GL, indigo <span class="colorbox indigo"></span> plug and 82 cm cable, <em>waterproof</em>: PL2303TA, black <span class="colorbox black"></span> plug, stainless steel shell, and 92 cm cable) could be ordered securely online with PayPal.
+USB Thermometer (PL2303GL, <em>normal</em>: indigo <span class="colorbox indigo"></span> plug and 82 cm cable, <em>waterproof</em>: black <span class="colorbox black"></span> plug, stainless steel shell, and 92 cm cable) could be ordered securely online with PayPal.
 </p>
-<p><small>
-Note: From 11th June 2022 onwards normal version features PL2303GL integrated circuit. PL2303TA on request.
-</small></p>
 
 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -213,9 +217,11 @@ Note: From 11th June 2022 onwards normal version features PL2303GL integrated ci
 <input type="hidden" name="currency_code" value="USD" />
 <input type="image" src="btn_cart_SM.png" name="submit" alt="PayPal" />
 </form>
-<p><small>
+<p>
+<small>
 Orders with value (excl. shipping &amp; handling) greater than 23 EUR (26 USD) will be shipped with tracking number, otherwise 1.5 EUR (1.7 USD) will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered). Having both version inside the same cart might be expressed as double amount for the shipping &amp; handling. Second amount (and in case of two or more orders on the same day) will be refunded after purchase at order review.
-</small></p>
+</small>
+</p>
 <p>
 For cost clarification, customizations, different USB thermometer configuration, SEPA payment or business purchase please write to sales@[this domain] to review feasibility and delivery options. <a href="terms.pdf">Terms of purchase</a>
 </p>
