@@ -5,8 +5,6 @@
    viewBox="0 0 149 22"
    height="22cm"
    width="149cm">
-  <title
-     id="title">usbtemp</title>
   <path
      d="M 2,2 v 18 h 19 v -18 h -4 v 14 h -11 v -14 z"
      id="u" />
