@@ -9,7 +9,7 @@
   <meta property="og:image" content="https://usbtemp.com/images/usbtemp_normal_og.jpg" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="32x32" />
   <link rel="icon" href="logos/usbtemp_plug_48.png" type="image/png" sizes="48x48" />
-  <title>Digital Thermometer -55 – +125°C with USB connection</title>
+  <title>Digital Thermometer −55 — +125°C with USB connection</title>
   <style>
     @font-face{font-family:"charter";src:url("fonts/charter_bold_italic-webfont.eot");src:url("fonts/charter_bold_italic-webfont.eot?#iefix")format("embedded-opentype"),url("fonts/charter_bold_italic-webfont.woff")format("woff"),url("fonts/charter_bold_italic-webfont.ttf")format("truetype");font-weight:bold;font-style:italic;}
     @font-face{font-family:"charter";src:url("fonts/charter_bold-webfont.eot");src:url("fonts/charter_bold-webfont.eot?#iefix")format("embedded-opentype"),url("fonts/charter_bold-webfont.woff")format("woff"),url("fonts/charter_bold-webfont.ttf")format("truetype");font-weight:bold;font-style:normal;}
@@ -43,8 +43,10 @@
     .black{background:#101010;}
     .indigo{background:#5ea1dc;}
     .white{background:#fefefe;}
-    #countries{padding:0;}
-    #countries li{border:1px solid black;display:inline-block;margin:1px;padding:0 0.5ex;}
+    a:after{border:1px solid black;display:inline-block;font-size:60%;font-variant:small-caps;margin:0 0 0.2ex 0.5em;padding:0em 0.3em;vertical-align:middle;}
+    a.apk:after{content:'APK';}
+    a.jpg:after{content:'JPG';}
+    a.pdf:after{content:'PDF';}
     footer div{display:inline;padding:0 0.5em;position:relative;}
     footer span{background:#101010;}
     footer .a{margin-right:0.5em;}
@@ -126,7 +128,7 @@ Here are listed values of default USB thermometer configuration, depending on se
 <li>Cable length (between plug and sensor): approximate <strong>82 cm</strong> – 2.7 ft (PL2303GL); <strong>92 cm</strong> – 3.0 ft (CP2102)</li>
 </ul>
 <p>
-These values could be changed on request, e.g. put probe on longer or <a href="images/usbtemp_15cm.jpg" target="_blank">shorter cable</a>, or make it waterproof (IP68) by putting the sensor inside a stainless steel or copper tube, so that the temperature of a liquid, e.g. water in a swimming pool, could be measured.
+These values could be changed on request, e.g. put probe on longer or <a class="jpg" href="images/usbtemp_15cm.jpg" target="_blank">shorter cable</a>, or make it waterproof (IP68) by putting the sensor inside a stainless steel or copper tube, so that the temperature of a liquid, e.g. water in a swimming pool, could be measured.
 </p>
 
 <h3>Picture of normal version (with default configuration)</h3>
@@ -134,29 +136,29 @@ These values could be changed on request, e.g. put probe on longer or <a href="i
 <a href="images/usbtemp_normal_2000.jpg"><img src="images/usbtemp_normal_667.jpg" alt="USB Thermometer normal version product image" class="image" /></a>
 </p>
 <p>
-<a href="images/usbtemp_waterproof_3400.jpg">picture of waterproof (stainless steel) version</a>, <a href="images/usbtemp_waterproof_1720_cu.jpg">picture of waterproof (copper) version</a>
+<a class="jpg" href="images/usbtemp_waterproof_3400.jpg">picture of waterproof (stainless steel) version</a>, <a class="jpg" href="images/usbtemp_waterproof_1720_cu.jpg">picture of waterproof (copper) version</a>
 </p>
 
 <h2>Technical data</h2>
 <ul>
-<li>Measuring range: <strong>–55 °C — +125 °C</strong> (<strong>–67 °F — +257 °F</strong>)</li>
-<li>Accuracy: <strong>0.5 °C</strong> (<strong>0.9 °F</strong>) (from –10 °C to +85 °C), <strong>2 °C</strong> otherwise</li>
+<li>Measuring range: <strong>−55 °C — +125 °C</strong> (<strong>−67 °F — +257 °F</strong>)</li>
+<li>Accuracy: <strong>0.5 °C</strong> (<strong>0.9 °F</strong>) (from −10 °C to +85 °C), <strong>2 °C</strong> otherwise</li>
 <li>Resolution: <strong>0.0625 °C</strong> (<strong>0.1125 °F</strong>) at 12-bit</li>
 <li>Data record frequency: <strong>above 750 milliseconds</strong> at 12-bit</li>
 <li>Works under <strong>Linux™</strong> with kernel version at least 5.5 (Debian 11+, Fedora 32+, Mageia 8+, Manjaro 20.2.1+, OpenWrt 22.03+, Raspberry Pi OS 2022-04-04+, Rosa 12+, Ubuntu 20.10+ etc.) and <strong>Windows®</strong> 7, 8, 8.1, 10 and 11. CPU architecture independent: works also on MIPS and ARM (e.g. Raspberry Pi) and <strong>Android</strong> devices (which support USB host mode).</li>
-<li>Supported by dedicated open source software (released under MIT license) at <a href="https://github.com/usbtemp" rel="noreferrer" target="_blank">github.com/usbtemp</a> (C, C++, C#, node.js and python 3 libraries with examples), <a href="https://play.google.com/store/apps/details?id=si.perpro.android.utmp_basic" rel="noreferrer nofollow" target="_blank">UTMP Basic</a>, and wide range of third-party tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp, pydigitemp.</li>
+<li>Supported by dedicated open source software (released under MIT license) at <a href="https://github.com/usbtemp" rel="noreferrer" target="_blank">github.com/usbtemp</a> (C, C++, C#, node.js and python 3 libraries with examples), <a class="apk" href="https://android.perpro.si/downloads/utmp_basic_v0-2-4.apk" target="_blank">UTMP Basic</a>, and wide range of third-party tools and monitoring utilities, e.g. Digitemp, owfs, LogTemp, pydigitemp.</li>
 </ul>
 <p>
 <small>
-Note: This information describes the current, 2<sup>nd</sup> generation of USB thermometer based on PL2303GL integrated circuit available after 10<sup>th</sup> June 2022. <a href="https://fs3.kel.si/product_sheets/usb-thermometer-ta.pdf" target="_blank">Product sheet of previous generation</a> (pdf)
+Note: This information describes the current, 2<sup>nd</sup> generation of USB thermometer based on PL2303GL integrated circuit available after 10<sup>th</sup> June 2022. <a class="pdf" href="https://fs3.kel.si/product_sheets/usb-thermometer-ta.pdf" target="_blank">Product sheet of previous generation</a>
 </small>
 </p>
 
 <h3>More information</h3>
 <ul>
-<li><a href="https://fs3.kel.si/product_sheets/usb-thermometer-gl.pdf">Product sheet</a> (pdf)</li>
-<li><a href="https://fs3.kel.si/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a> (pdf)</li>
-<li><a href="https://fs3.kel.si/application_notes/logtemp.pdf">LogTemp setup</a> (pdf), <a href="https://fs3.kel.si/application_notes/utmp_snmp.pdf">SNMP setup</a> (pdf), <a href="https://fs3.kel.si/application_notes/1wire_owfs_nodered.pdf">NODE-RED setup</a> (pdf)</li>
+<li><a class="pdf" href="https://fs3.kel.si/product_sheets/usb-thermometer-gl.pdf">Product sheet</a></li>
+<li><a class="pdf" href="https://fs3.kel.si/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a></li>
+<li><a class="pdf" href="https://fs3.kel.si/application_notes/logtemp.pdf">LogTemp setup</a>, <a class="pdf" href="https://fs3.kel.si/application_notes/utmp_snmp.pdf">SNMP setup</a>, <a class="pdf" href="https://fs3.kel.si/application_notes/1wire_owfs_nodered.pdf">NODE-RED setup</a></li>
 </ul>
 
 <h2 id="software">Drivers and software</h2>
@@ -228,7 +230,7 @@ Orders with value (excl. shipping &amp; handling) greater than 25 EUR (26 USD) w
 </p>
 <p>
 <small>
-Note: 1<sup>st</sup> generation of USB thermometer based on PL2303TA integrated circuit still available in limited quantity for legacy applications, and older operating systems.
+Note: 1<sup>st</sup> generation of USB thermometer based on PL2303TA integrated circuit still available in limited quantity for legacy applications, and older operating systems, e.g. OpenWrt 19.07, Raspbian.
 </small>
 </p>
 <p>
