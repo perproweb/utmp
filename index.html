@@ -18,7 +18,7 @@
     @font-face{font-family:"charter";src:url("fonts/charter_regular-webfont.eot");src:url("fonts/charter_regular-webfont.eot?#iefix")format("embedded-opentype"),url("fonts/charter_regular-webfont.woff")format("woff"),url("fonts/charter_regular-webfont.ttf")format("truetype");font-weight:normal;font-style:normal;}
   </style>
   <style>
-    body{background:#eeeeee;font-family:"charter",serif;font-size:13pt;margin:1em;}
+    body{background:#eeeeee;font-family:"charter",serif;font-size:13pt;margin:0;}
     header,main,footer{max-width:800px;display:block;margin:0 auto;}
     footer{font-size:80%;padding:2ex 0px;text-align:center;}
     a{color:#23415a;}
@@ -32,6 +32,7 @@
     .logos > *+*{margin-left:1em;}
     h1{border-bottom:2px solid #23415a;}
     @media(max-width:960px){
+      body{margin:1em;}
       ul{list-style-type:none;padding-left:0;}
       li+li{margin-top:0.5em;}
       li i{display:none;}
