@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Application note for installation middleware to expose USB Thermometer to MODBUS TCP">
+  <title>MODBUS TCP Ethernet Temperature Sensor</title>
+  <style>
+    a{color:#23415a;}
+    body{background:#eeeeee;font-family:sans;font-size:14pt;margin:1em;}
+    main,footer{max-width:1200px;margin:30px auto;}
+    pre,p code{background:white;padding:2px 6px;border-radius:6px;overflow-x:auto;}
+    pre{padding:8px;}
+    .prompt,samp{user-select:none;}
+    .prompt{margin-right:1ex;}
+    pre::-moz-selection,pre::selection{background: yellow;}
+  </style>
+</head>
+<body>
+
+<main>
+
+<b>Application Note</b>
+<h1>MODBUS TCP Ethernet Temperature Sensor</h1>
+<em>using USB Thermometer and Linux as host</em>
+<p>
+  This note consists of the following steps:
+</p>
+<ol>
+<li>Preparing Linux host</li>
+<li>Software installation</li>
+<li>Testing thermometer</li>
+<li>Enabling MODBUS service</li>
+<li>Testing MODBUS connectivity</li>
+</ol>
+
+<h2>Prepare Linux host</h2>
+<p>
+  Since the temperature probe has a USB connection a host with Ethernet port is needed. For sake of simplicity a Raspberry Pi single board computer is used in this note as an example host.
+</p>
+
+<p>
+  Basic steps includes:
+</p>
+<ol>
+<li>Install Raspberry Pi OS Lite to micro SD card, using Raspberry Pi Imager.</li>
+<li>Start Raspberry Pi, configure user and login to a console.</li>
+<li>Set static IP or fix static IP for host on your DHCP server.</li>
+<li>Plug in USB Thermometer and obtain its character device, see <a href="https://usbtemp.s3.amazonaws.com/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a> for details.</li>
+</ol>
+
+<p>
+  At this point you should have working thermometer using <code>utmp-cli</code> or <code>digitemp</code> binary on the host.
+</p>
+<p>
+  For the rest of the note it is assumed the thermometer has been assigned to <code>/dev/ttyUSB0</code> character device. For robustness use character device assiged to the thermometer serial number, like <code>/dev/serial/by-id/???</code>.
+</p>
+
+<h2>Install software</h2>
+<p>
+  Since the software is distributed as source code compiling tools and libraries are needed. Install compiling tools with needed libraries on Linux host: <code>sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make</code>
+</p>
+
+<p>
+  Obtain <u>source code</u> (e-mail to support) and compile.
+</p>
+<pre>
+unzip -d~ utmpwatcher.zip
+cd ~/utmpwatcher/
+make clean && make MODBUS=1 SYSTEMD=1
+sudo make install
+</pre>
+
+<p>
+  After issuing last command, the binaries (server: <code>uws</code>, client: <code>uwc</code>) are installed into <code>/usr/local/sbin</code> and <code>/usr/local/bin</code> directories respectively.
+</p>
+
+<h2>Test thermometer</h2>
+<p>
+  For testing purpose a server binary <code>uws</code> is ran as superuser using verbose and foreground switch. The process output should be like.
+</p>
+<pre>
+<code class="prompt">#</code>sudo uws -f -v -p 0 -P 0 -s /dev/ttyUSB0
+<samp>UTMP Watcher Server v0.071 Copyright 2024 usbtemp.com et al. Licensed under GPL-2.0-only licence.
+USBTEMP> Device 0 at serial port /dev/ttyUSB0.
+BINARY> Using 2001 for BINARY port.
+FCGI> Disabled.
+MODBUS> Using 502 for Modbus port.
+TELNET> Disabled.
+Starting UTMP Watcher Server ...</samp>
+</pre>
+
+<p>
+  In another console emulator run client binary.
+</p>
+<pre>
+<code class="prompt">#</code>uwc
+<samp>UTMP Watcher Client v0.01 Copyright 2024 usbtemp.com et al. Licensed under GPL-2.0-only licence.
+ROM: 282fb6e50c00002c
+Temperature: 19.250</samp>
+</pre>
+
+<p>
+  Stop server by pressing <i>Ctrl-C</i> in first console.
+</p>
+<p>
+    Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end, e.g. <code>uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2</code>. Order is preserved.
+</p>
+
+<h2>Enable MODBUS and start at boot</h2>
+
+<p>
+  First create nonprivileged dedicated user for daemon and grant it access to USB Thermometer (as member of dialout group).
+</p>
+<pre>
+sudo groupadd -r utmpwatcher
+sudo useradd -g utmpwatcher -M -N -r -s /usr/sbin/nologin utmpwatcher
+sudo usermod -a -G dialout utmpwatcher
+</pre>
+
+<h3>Install systemd configuration</h3>
+<pre>
+cd ~/utmpwatcher/
+sudo make install-systemd
+</pre>
+<p>
+  To configure daemon (persistent) configuration edit file <samp>/etc/uws.args</samp>, e.g. <code>sudo nano /etc/uws.args</code> to disable FastCGI and TELNET interface.
+</p>
+<pre>
+ARGS="-p 0 -P 0 -s /dev/ttyUSB0"
+</pre>
+
+<p>
+    Because default port number of MODBUS TCP, 502 is lower that 1024, daemon ran by nonprivileged users cannot obtain such socket for itself, therefor a feature in systemd, called socket-based activation, is exploited. Instead of running <i>uws.service</i> a systemd <i>uws.socket</i> is enabled and started.
+</p>
+<pre>
+sudo systemctl daemon-reload
+sudo systemctl enable uws.socket
+sudo systemctl start uws.socket
+</pre>
+<p>
+    Once systemd detects incomming connection on port 502, it creates socket and passes it to the service it has just started.
+</p>
+
+<h2>Test MODBUS connectivity</h2>
+<p>
+  For testing purposes <code>mbpoll</code> binary is used. It is available as package for Debian based systems after installing <em>mbpoll</em> package.
+</p>
+
+<p>
+  For example if your host has IP of 198.18.41.105, first input register holds  
+  the temperature from first thermometer encoded as DCBA float.
+</p>
+<pre>
+mbpoll -t 3:float -c 1 198.18.41.105
+</pre>
+<p>
+    Presence (status) of first temperature probe is available from first discrete input.
+</p>
+
+<p>
+  At this point you should have a working temperature sensor available over MODBUS TCP (502) through Linux host.
+</p>
+
+<h2>Troubleshooting</h2>
+<p>
+  Write to support e-mail on main website. Thanks.
+</p>
+
+</main>
+
+<footer>
+  <i>5th October 2024, usbtemp.com</i>
+</footer>
+</body>
+</html>
