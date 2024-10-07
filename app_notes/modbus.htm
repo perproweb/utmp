@@ -4,16 +4,7 @@
   <meta charset="utf-8">
   <meta name="description" content="Application note for installation middleware to expose USB Thermometer to MODBUS TCP">
   <title>MODBUS TCP Ethernet Temperature Sensor</title>
-  <style>
-    a{color:#23415a;}
-    body{background:#eeeeee;font-family:sans;font-size:14pt;margin:1em;}
-    main,footer{max-width:1200px;margin:30px auto;}
-    pre,p code{background:white;padding:2px 6px;border-radius:6px;overflow-x:auto;}
-    pre{padding:8px;}
-    .prompt,samp{user-select:none;}
-    .prompt{margin-right:1ex;}
-    pre::-moz-selection,pre::selection{background: yellow;}
-  </style>
+  <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -103,7 +94,7 @@ Temperature: 19.250</samp>
   Stop server by pressing <i>Ctrl-C</i> in first console.
 </p>
 <p>
-    Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end, e.g. <code>uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2</code>. Order is preserved.
+  Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end, e.g. <code>uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2</code>. Order is preserved.
 </p>
 
 <h2>Enable MODBUS and start at boot</h2>
@@ -130,7 +121,7 @@ ARGS="-p 0 -P 0 -s /dev/ttyUSB0"
 </pre>
 
 <p>
-    Because default port number of MODBUS TCP, 502 is lower that 1024, daemon ran by nonprivileged users cannot obtain such socket for itself, therefor a feature in systemd, called socket-based activation, is exploited. Instead of running <i>uws.service</i> a systemd <i>uws.socket</i> is enabled and started.
+  Because default port number of MODBUS TCP, 502 is lower that 1024, daemon ran by nonprivileged users cannot obtain such socket for itself, therefor a feature in systemd, called socket-based activation, is exploited. Instead of running <i>uws.service</i> a systemd <i>uws.socket</i> is enabled and started.
 </p>
 <pre>
 sudo systemctl daemon-reload
@@ -138,7 +129,7 @@ sudo systemctl enable uws.socket
 sudo systemctl start uws.socket
 </pre>
 <p>
-    Once systemd detects incomming connection on port 502, it creates socket and passes it to the service it has just started.
+  Once systemd detects incomming connection on port 502, it creates socket and passes it to the service it has just started.
 </p>
 
 <h2>Test MODBUS connectivity</h2>
@@ -154,7 +145,7 @@ sudo systemctl start uws.socket
 mbpoll -t 3:float -c 1 198.18.41.105
 </pre>
 <p>
-    Presence (status) of first temperature probe is available from first discrete input.
+  Presence (status) of first temperature probe is available from first discrete input.
 </p>
 
 <p>
