@@ -27,7 +27,7 @@
 
 <h2>Prepare Linux host</h2>
 <p>
-  Since the temperature probe has a USB connection a host with Ethernet port is needed. For sake of simplicity a Raspberry Pi single board computer is used in this note as an example host.
+  Since the temperature sensor has a USB connection a host with Ethernet port is needed. For sake of simplicity a Raspberry Pi single board computer is used in this note as an example host.
 </p>
 <p>
   Basic steps includes:
@@ -143,7 +143,7 @@ sudo systemctl start uws.socket
 mbpoll -t 3:float -c 1 198.18.41.105
 </pre>
 <p>
-  Presence (status) of first temperature probe is available from first discrete input.
+  Presence (status) of first temperature sensor is available from first discrete input.
 </p>
 <p>
   At this point you should have a working temperature sensor available over MODBUS TCP (502) through Linux host.
