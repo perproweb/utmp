@@ -13,7 +13,99 @@
 
 <b>Application Note</b>
 <h1>Cloud Connected Temperature Sensor</h1>
-<em>using USB Thermometer and Linux as host</em>
+<em>measure temperature, upload temperature, wait a few moments, do it again, with scripting</em>
+<p style="color:red;">
+  Work in progres...
+</p>
+<p>
+  This note consists of the following steps:
+</p>
+<ul>
+  <li>Prerequirements</li>
+  <li>Preparing Linux host</li>
+  <li>Software installation</li>
+  <li>Scripting</li>
+</ul>
+
+<h2>Prerequirements</h2>
+<p>
+  Some kind of cloud service is obviously needed. It should provide at least a method through it receives data.
+</p>
+<p>
+  For this application node a <a href="https://www.4floats.com/">cloud service 4floats.com</a> was established. It supports widely used protocols, namely HTTP and HTTPS, with GET and POST methods. Once the value is sent, it could be obtained.
+</p>
+
+<h2>Preparing Linux host</h2>
+<p>
+  See <a href="modbus.htm#preparing">section of the same title</a> of related application node.
+</p>
+
+<h2>Software installation</h2>
+<p>
+  Software section depends on chosen cloud service. For 4floats only a HTTP client, e.g. <i>curl</i> or <i>wget</i>, is needed. Install wget by <code>sudo apt-get install -y wget</code>.
+</p>
+
+<h2>Scripting</h2>
+
+<h3>Manual check</h3>
+<p>
+  Before going to automation, commands need to be ran one by one while checking performance, return values etc.
+</p>
+<p>
+  The following command accesses USB thermometer on <code>/dev/ttyUSB0</code> and return just a value in degrees Celsius.
+</p>
+<pre>
+  utmp-cli -q -s /dev/ttyUSB0 | cut -d" " -f6
+</pre>
+<p>
+  The same could be achived with digitemp, but before a digitemp configuration, <code>/etc/digitemp.conf</code> must be created.
+</p>
+<pre>
+  digitemp_DS9097 -q -c /etc/digitemp.conf -t 0 | cut -d" " -f7
+</pre>
+
+<p>
+  Next step is sending a value to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note channel name is <i>appnote</i> and key <i>2025utmp</i>. We send value of <code>20</code> to float key <code>t</code>, short for temperature.
+</p>
+<pre>
+  wget -q "https://a.4floats.com/poke/appnote?key=2025utmp&t=20" -O -
+</pre>
+<p>
+  On success a <code>{"error":"None"}</code> will be returned. Then the value sent could be obtained by:
+</p>
+<pre>
+  wget -q "https://a.4floats.com/peek/appnote" -O -
+</pre>
+<p>
+  On success something like <code>{"t":"20","timestamp":"1735689600000"}</code> will be returned.
+</p>
+
+<h3>Automation</h3>
+<p>
+  The following script uploads temperature from device connected to <i>/dev/ttyUSB0</i> to channel <i>appnote</i> protected with key <i>2025utmp</i> to key <i>t1</i> using utmp-cli and wget.
+</p>
+<pre>
+SERVER="http://49.13.30.209" # a.4floats.com
+
+CHANNEL=appnote
+KEY=2025utmp
+SERIAL_PORT=/dev/ttyUSB0
+
+test -c "$SERIAL_PORT" || exit 2
+
+NAME=$(basename $0 | cut -d. -f1)
+LOG_FILE="/tmp/$NAME"
+
+TEMP_C=$(utmp-cli -q -s $SERIAL_PORT | cut -d" " -f6)
+if [ $? -eq 0 ]; then
+  wget --post-data "t=${TEMP_C}&key=${KEY}" "$SERVER/poke/$CHANNEL" \
+  -O "${LOG_FILE}-output" >"${LOG_FILE}-wget" 2>&1
+fi
+</pre>
 
 </main>
+
+<footer>
+  <i>2nd January 2025, usbtemp.com</i>
+</footer>
 </body>
