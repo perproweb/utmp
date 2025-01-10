@@ -32,17 +32,17 @@
   Some kind of cloud service is obviously needed. It should provide at least a method through it receives data.
 </p>
 <p>
-  For this application node a <a href="https://www.4floats.com/">cloud service 4floats.com</a> was established. It supports widely used protocols, namely HTTP and HTTPS, with GET and POST methods. Once the value is sent, it could be obtained.
+  For this application note a <a href="https://www.4floats.com/">cloud service 4floats.com</a> was established. It supports widely used protocols, namely HTTP and HTTPS, with GET and POST methods. Once the value is sent, it could be obtained.
 </p>
 
 <h2>Preparing Linux host</h2>
 <p>
-  See <a href="modbus.htm#preparing">section of the same title</a> of related application node.
+  See <a href="modbus.htm#preparing">section of the same title</a> of related application node. At this point you should have a USB temperature probe accessible and working.
 </p>
 
 <h2>Software installation</h2>
 <p>
-  Software section depends on chosen cloud service. For 4floats only a HTTP client, e.g. <i>curl</i> or <i>wget</i>, is needed. Install wget by <code>sudo apt-get install -y wget</code>.
+  Software section depends on chosen cloud service. For 4floats.com only a HTTP client, e.g. <i>curl</i> or <i>wget</i>, is needed. In this application note, wget will be used, so install it by <code>sudo apt-get install -y wget</code>.
 </p>
 
 <h2>Scripting</h2>
@@ -58,14 +58,14 @@
   utmp-cli -q -s /dev/ttyUSB0 | cut -d" " -f6
 </pre>
 <p>
-  The same could be achived with digitemp, but before a digitemp configuration, <code>/etc/digitemp.conf</code> must be created.
+  The same output could be achived with digitemp, but first a digitemp configuration, <code>/etc/digitemp.conf</code> must be created.
 </p>
 <pre>
   digitemp_DS9097 -q -c /etc/digitemp.conf -t 0 | cut -d" " -f7
 </pre>
 
 <p>
-  Next step is sending a value to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note channel name is <i>appnote</i> and key <i>2025utmp</i>. We send value of <code>20</code> to float key <code>t</code>, short for temperature.
+  Next step is sending this value (output) to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note, as an example, channel name is <i>appnote</i> with its key <i>2025utmp</i>. We send value of <code>20</code> to float key <code>t</code>, t as an abbreviation for temperature.
 </p>
 <pre>
   wget -q "https://a.4floats.com/poke/appnote?key=2025utmp&t=20" -O -
@@ -82,10 +82,10 @@
 
 <h3>Automation</h3>
 <p>
-  The following script uploads temperature from device connected to <i>/dev/ttyUSB0</i> to channel <i>appnote</i> protected with key <i>2025utmp</i> to key <i>t1</i> using utmp-cli and wget.
+  The following script uploads temperature from device connected to <i>/dev/ttyUSB0</i> to channel <i>appnote</i> protected with key <i>2025utmp</i> to float key <i>t</i> using utmp-cli and wget.
 </p>
 <pre>
-SERVER="http://49.13.30.209" # a.4floats.com
+SERVER="http://49.13.30.209" # resolved IP for a.4floats.com
 
 CHANNEL=appnote
 KEY=2025utmp
@@ -102,6 +102,17 @@ if [ $? -eq 0 ]; then
   -O "${LOG_FILE}-output" >"${LOG_FILE}-wget" 2>&1
 fi
 </pre>
+<p>
+  Save upper script to a file, e.g. <code>/home/yourusername/upload.sh</code> and make it executable by <code>chmod u+x /home/yourusername/upload.sh</code>.
+</p>
+<p>
+  Now execute your script by <code>/home/yourusername/upload.sh</code> and take a look into files <code>/tmp/upload-output</code> and <code>/tmp/upload-wget</code>. The content of output should be like <code>{"t":"20","timestamp":"1735689600000"}</code>.
+</p>
+
+<h2>Troubleshooting</h2>
+<p>
+  Write to support e-mail address on main website. Your e-mail will improve content and clarity.
+</p>
 
 </main>
 
