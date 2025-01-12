@@ -10,6 +10,16 @@
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://usbtemp.com/app_notes/cloud.htm</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://usbtemp.com/app_notes/modbus.htm</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://usbtemp.com/cli.exe</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
@@ -29,5 +39,4 @@
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
-
 </urlset>

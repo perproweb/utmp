@@ -5,4 +5,4 @@ pre,p code{background:white;padding:2px 6px;border-radius:6px;overflow-x:auto;}
 pre{overflow-x:auto;padding:8px;}
 .prompt,samp{user-select:none;}
 .prompt{margin-right:1ex;}
-pre::-moz-selection,pre::selection{background: yellow;}
+code::-moz-selection,code::selectionmpre::-moz-selection,pre::selection{background: yellow;}
