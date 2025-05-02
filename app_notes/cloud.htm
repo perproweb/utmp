@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="">
+  <meta name="description" content="Application note to make fresh temperature measurements available online">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cloud Connected Temperature Sensor</title>
   <link href="style.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 
 <h2>Preparing Linux host</h2>
 <p>
-  See <a href="modbus.htm#preparing">section of the same title</a> of related application node. At this point you should have a USB temperature probe accessible and working.
+  See <a href="modbus.htm#preparing">section of the same title</a> of related application node. At this point you should have a USB temperature sensor accessible and working (locally).
 </p>
 
 <h2>Software installation</h2>
@@ -58,7 +58,7 @@
   utmp-cli -q -s /dev/ttyUSB0 | cut -d" " -f6
 </pre>
 <p>
-  The same output could be achived with digitemp, but first a digitemp configuration, <code>/etc/digitemp.conf</code> must be created.
+  The same output could be achieved with <i>digitemp</i>, but first a digitemp configuration, e.g. <code>/etc/digitemp.conf</code> must be created, see <a href="https://usbtemp.s3.amazonaws.com/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a> for details. The following code returns (temperature) value.
 </p>
 <pre>
   digitemp_DS9097 -q -c /etc/digitemp.conf -t 0 | cut -d" " -f7
@@ -103,7 +103,7 @@ if [ $? -eq 0 ]; then
 fi
 </pre>
 <p>
-  Save upper script to a file, e.g. <code>/home/yourusername/upload.sh</code> and make it executable by <code>chmod u+x /home/yourusername/upload.sh</code>.
+  Save upper script to a file, e.g. <code>/home/yourusername/upload.sh</code>, and make it executable by <code>chmod u+x /home/yourusername/upload.sh</code>.
 </p>
 <p>
   Now execute your script by <code>/home/yourusername/upload.sh</code> and take a look into files <code>/tmp/upload-output</code> and <code>/tmp/upload-wget</code>. The content of output should be like <code>{"t":"20","timestamp":"1735689600000"}</code>.
@@ -119,4 +119,6 @@ fi
 <footer>
   <i>2nd January 2025, usbtemp.com</i>
 </footer>
+
 </body>
+</html>

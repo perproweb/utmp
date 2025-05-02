@@ -27,7 +27,7 @@
 
 <h2 id="preparing">Prepare Linux host</h2>
 <p>
-  Since the temperature sensor has a USB connection a host with Ethernet port is needed. For sake of simplicity a Raspberry Pi single board computer is used in this note as an example host.
+  Since the temperature sensor has a USB plug in addition to the network connection, a host with USB socket is needed. For sake of simplicity a Raspberry Pi single board computer is used in this note as a host.
 </p>
 <p>
   Basic steps includes:
@@ -42,12 +42,12 @@
   At this point you should have working thermometer using <code>utmp-cli</code> or <code>digitemp</code> binary on the host.
 </p>
 <p>
-  For the rest of the note it is assumed the thermometer has been assigned to <code>/dev/ttyUSB0</code> character device. For robustness use character device assiged to the thermometer serial number, like <code>/dev/serial/by-id/???</code>.
+  For the rest of the note it is assumed the thermometer has been assigned to <code>/dev/ttyUSB0</code> character device. For robustness use character device assigned to the thermometer serial number, like <code>/dev/serial/by-id/???</code>, where ??? is USB bridge's serial number.
 </p>
 
 <h2>Install software</h2>
 <p>
-  Since the software is distributed as source code compiling tools and libraries are needed. Install compiling tools with needed libraries on Linux host, e.g. <code>sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make</code> for Debian based distros.
+  Since the software is distributed as source code compiling tools and libraries are needed. Install compiling tools with needed libraries on Linux host, e.g. <code>sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make</code> for Debian based distros, including Raspberry Pi OS.
 </p>
 <p>
   Source code is offered with GPL-2 licence and uses <a href="https://libmodbus.org/" rel="noreferrer" target="_blank">libmodbus</a> library licenced under LGPL-2.1+ licence.
@@ -71,7 +71,7 @@ sudo make install
 </p>
 <pre>
 <code class="prompt">#</code>sudo uws -f -v -p 0 -P 0 -s /dev/ttyUSB0
-<samp>UTMP Watcher Server v0.071 Copyright 2024 usbtemp.com et al. Licensed under GPL-2.0-only licence.
+<samp>UTMP Watcher Server v0.08 Copyright 2025 usbtemp.com et al. Licensed under GPL-2.0-only licence.
 USBTEMP> Device 0 at serial port /dev/ttyUSB0.
 BINARY> Using 2001 for BINARY port.
 FCGI> Disabled.
@@ -84,7 +84,7 @@ Starting UTMP Watcher Server ...</samp>
 </p>
 <pre>
 <code class="prompt">#</code>uwc
-<samp>UTMP Watcher Client v0.01 Copyright 2024 usbtemp.com et al. Licensed under GPL-2.0-only licence.
+<samp>UTMP Watcher Client v0.021 Copyright 2025 usbtemp.com et al. Licensed under GPL-2.0-only licence.
 ROM: 282fb6e50c00002c
 Temperature: 19.250</samp>
 </pre>
@@ -159,5 +159,6 @@ mbpoll -t 3:float -c 1 198.18.41.105
 <footer>
   <i>5th October 2024, usbtemp.com</i>
 </footer>
+
 </body>
 </html>
