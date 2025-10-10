@@ -8,5 +8,5 @@ p code{display:inline-block;margin-top:-2px;max-width:100%;vertical-align:middle
 .prompt{margin-right:1ex;}
 code::-moz-selection,code::selection,pre::-moz-selection,pre::selection{background:yellow;}
 @media(max-width:1010px){
-  body{font-size:90%;}
+  body{font-size:12pt;}
 }
