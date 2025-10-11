@@ -48,8 +48,11 @@
 
 <h2>Install software</h2>
 <p>
-  Since the software is distributed as source code compiling tools and libraries are needed. Install compiling tools with needed libraries on Linux host, e.g. <code>sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make</code> for Debian based distros, including Raspberry Pi OS.
+  Since the software is distributed as source code compiling tools and libraries are needed. Install compiling tools with needed libraries on Linux host, like for Debian based distros, including Raspberry Pi OS:
 </p>
+<pre>
+sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make
+</pre>
 <p>
   Source code is offered with GPL-2 licence and uses <a href="https://libmodbus.org/" rel="noreferrer" target="_blank">libmodbus</a> library licenced under LGPL-2.1+ licence.
 </p>
@@ -93,7 +96,12 @@ Temperature: 19.250</samp>
   Stop server by pressing <i>Ctrl-C</i> in first console.
 </p>
 <p>
-  Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end, e.g. <code>uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2</code>. Order is preserved.
+  Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end.
+<pre>
+uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2
+</pre>
+<p>
+  Order is preserved.
 </p>
 
 <h2>Enable MODBUS and start at boot</h2>
