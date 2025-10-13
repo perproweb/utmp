@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Application note to make fresh temperature measurements available online">
+  <meta name="description" content="Application note to make recent temperature measurements available online">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://usbtemp.com/app_notes/cloud.htm">
   <title>Cloud Connected Temperature Sensor</title>
@@ -14,7 +14,7 @@
 
 <b>Application Note</b>
 <h1>Cloud Connected Temperature Sensor</h1>
-<em>measure temperature, upload temperature, wait a few moments, do it again, with scripting</em>
+<em>measure temperature, upload its value, wait a few moments, do it again, with scripting</em>
 <p style="color:red;">
   Work in progres...
 </p>
@@ -53,26 +53,26 @@
   Before going to automation, commands need to be ran one by one while checking performance, return values etc.
 </p>
 <p>
-  The following command accesses USB thermometer on <code>/dev/ttyUSB0</code> and return just a value in degrees Celsius.
+  The following command accesses USB thermometer on <samp>/dev/ttyUSB0</samp> and return just a value in degrees Celsius.
 </p>
 <pre>
 utmp-cli -q -s /dev/ttyUSB0 | cut -d" " -f6
 </pre>
 <p>
-  The same output could be achieved with <i>digitemp</i>, but first a digitemp configuration, e.g. <code>/etc/digitemp.conf</code> must be created, for details see <a href="https://usbtemp.s3.amazonaws.com/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a>. The following code returns (temperature) value.
+  The same output could be achieved with <i>digitemp</i>, but first a digitemp configuration, e.g. <samp>/etc/digitemp.conf</samp> must be created, for details see <a href="https://usbtemp.s3.amazonaws.com/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a>. The following code returns (temperature) value.
 </p>
 <pre>
 digitemp_DS9097 -q -c /etc/digitemp.conf -t 0 | cut -d" " -f7
 </pre>
 
 <p>
-  Next step is sending this value (output) to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note, as an example, channel name is <i>appnote</i> with its key <i>2025utmp</i>. We send value of <code>20</code> to float key <code>t</code>, t as an abbreviation for temperature.
+  Next step is sending this value (output) to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note, as an example, channel name is <i>appnote</i> with its key <i>2025utmp</i>. We send value of <i>20</i> to float key <samp>t</samp>, letter t as an abbreviation for temperature.
 </p>
 <pre>
 wget -q "https://a.4floats.com/poke/appnote?key=2025utmp&t=20" -O -
 </pre>
 <p>
-  On success a <code>{"error":"None"}</code> will be returned. Then the value sent could be obtained by:
+  On success a <code>{"error":"None"}</code> will be returned. Then the sent value could be obtained by:
 </p>
 <pre>
 wget -q "https://a.4floats.com/peek/appnote" -O -
@@ -83,7 +83,7 @@ wget -q "https://a.4floats.com/peek/appnote" -O -
 
 <h3>Automation</h3>
 <p>
-  The following script uploads temperature from device connected to <i>/dev/ttyUSB0</i> to channel <i>appnote</i> protected with key <i>2025utmp</i> to float key <i>t</i> using utmp-cli and wget.
+  The following script uploads temperature from device connected to <samp>/dev/ttyUSB0</samp> to channel <i>appnote</i> protected with key <i>2025utmp</i> to float key <i>t</i> using <i>utmp-cli</i> and <i>wget</i>.
 </p>
 <pre>
 SERVER="http://49.13.30.209" # resolved IP for a.4floats.com
@@ -104,21 +104,69 @@ if [ $? -eq 0 ]; then
 fi
 </pre>
 <p>
-  Save upper script to a file, e.g. <code>/home/yourusername/upload.sh</code>, and make it executable by <code>chmod u+x /home/yourusername/upload.sh</code>.
+  Save upper script to a file, e.g. <samp>/home/yourusername/upload.sh</samp>, and make it executable by <code>chmod u+x /home/yourusername/upload.sh</code>.
 </p>
 <p>
-  Now execute your script by <code>/home/yourusername/upload.sh</code> and take a look into files <code>/tmp/upload-output</code> and <code>/tmp/upload-wget</code>. The content of output should be like <code>{"t":"20","timestamp":"1735689600000"}</code>.
+  Now execute your script by <samp>/home/yourusername/upload.sh</samp> and take a look into files <samp>/tmp/upload-output</samp> and <samp>/tmp/upload-wget</samp>. The content of output should be like <code>{"t":"20","timestamp":"1735689600000"}</code>.
 </p>
+<p>
+  Depending on your Linux distribution, there could be <i>cron</i> or <i>systemd</i>.
+</p>
+
+<h4>systemd</h4>
+<p>
+  For systemd first create a service unit file, e.g. <samp>/etc/systemd/system/upload.service</samp>, that runs the script. Add the following content (replace yourusername with the correct username):
+</p>
+<pre>
+[Unit]
+Description=Run upload.sh script
+
+[Service]
+Type=oneshot
+User=yourusername
+ExecStart=/home/yourusername/upload.sh
+</pre>
+<p>
+  Then create a timer unit, e.g. <samp>/etc/systemd/system/upload.timer</samp> that triggers the above service every 5 seconds.
+</p>
+<pre>
+[Unit]
+Description=Run upload.sh every 5 seconds
+
+[Timer]
+OnBootSec=5
+OnUnitActiveSec=5
+Unit=upload.service
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
+</pre>
+<p>
+  Reload systemd and enable the timer.
+</p>
+<pre>
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable --now upload.timer
+</pre>
+<p>
+  Check that it's running, by checking the logs.
+</p>
+<pre>
+systemctl list-timers --all | grep upload
+journalctl -u upload.service -f
+</pre>
 
 <h2>Troubleshooting</h2>
 <p>
-  Write to support e-mail address on main website. Your e-mail will improve content and clarity.
+  Write to support e-mail address given on main website. Your e-mail will improve content and clarity.
 </p>
 
 </main>
 
 <footer>
-  <i>2nd January 2025, usbtemp.com</i>
+  <i>created: 2nd January 2025, updated: 13th October 2025, <a href="https://usbtemp.com/">usbtemp.com</a></i>
 </footer>
 
 </body>

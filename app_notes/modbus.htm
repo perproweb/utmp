@@ -40,10 +40,10 @@
 <li>Plug in USB Thermometer and obtain its character device, see <a href="https://usbtemp.s3.amazonaws.com/manuals/usb-thermometer_installation-en.pdf">Driver and software installation guide</a> for details.</li>
 </ol>
 <p>
-  At this point you should have working thermometer using <code>utmp-cli</code> or <code>digitemp</code> binary on the host.
+  At this point you should have working thermometer using <i>utmp-cli</i> or <i>digitemp</i> binary on the host.
 </p>
 <p>
-  For the rest of the note it is assumed the thermometer has been assigned to <code>/dev/ttyUSB0</code> character device. For robustness use character device assigned to the thermometer serial number, like <code>/dev/serial/by-id/???</code>, where ??? is USB bridge's serial number.
+  For the rest of the note it is assumed the thermometer has been assigned to <samp>/dev/ttyUSB0</samp> character device. For robustness use character device assigned to the thermometer serial number, like <samp>/dev/serial/by-id/???</samp>, where ??? is USB bridge's serial number.
 </p>
 
 <h2>Install software</h2>
@@ -57,7 +57,7 @@ sudo apt-get install -y gcc libmodbus-dev libsystemd-dev libc6-dev make
   Source code is offered with GPL-2 licence and uses <a href="https://libmodbus.org/" rel="noreferrer" target="_blank">libmodbus</a> library licenced under LGPL-2.1+ licence.
 </p>
 <p>
-  Obtain <u>source code</u> (e-mail to support) and compile.
+  Obtain <u>source code</u> (e-mail support) and compile.
 </p>
 <pre>
 unzip -d~ utmpwatcher.zip
@@ -66,12 +66,12 @@ make clean && make MODBUS=1 SYSTEMD=1
 sudo make install
 </pre>
 <p>
-  After issuing last command, the binaries (server: <code>uws</code>, client: <code>uwc</code>) are installed into <code>/usr/local/sbin</code> and <code>/usr/local/bin</code> directories respectively.
+  After issuing last command, the binaries (server: <samp>uws</samp>, client: <samp>uwc</samp>) are installed into <samp>/usr/local/sbin</samp> and <samp>/usr/local/bin</samp> directories respectively.
 </p>
 
 <h2>Test thermometer</h2>
 <p>
-  For testing purpose a server binary <code>uws</code> is ran as superuser using verbose and foreground switch. The process output should be like the following.
+  For testing purpose a server binary <samp>uws</samp> is ran as superuser using verbose and foreground switch. The process output should be like the following.
 </p>
 <pre>
 <code class="prompt">#</code>sudo uws -f -v -p 0 -P 0 -s /dev/ttyUSB0
@@ -96,7 +96,7 @@ Temperature: 19.250</samp>
   Stop server by pressing <i>Ctrl-C</i> in first console.
 </p>
 <p>
-  Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <code>-s</code> switch or list theirs character devices at the end.
+  Software supports without any source code modification up to 9 thermometers. Just list theirs character devices with <samp>-s</samp> switch or list theirs character devices at the end.
 </p>
 <pre>
 uws -f -v -p 0 -P 0 /dev/ttyUSB0 /dev/ttyUSB1 /dev/ttyUSB2
@@ -143,11 +143,10 @@ sudo systemctl start uws.socket
 
 <h2>Test MODBUS connectivity</h2>
 <p>
-  For testing purposes <code>mbpoll</code> binary is used. It is available inside a package for Debian based systems after installing <em>mbpoll</em> package.
+  For testing purposes <i>mbpoll</i> binary is used. It is available inside a package for Debian based systems after installing <i>mbpoll</i> package.
 </p>
 <p>
-  For example if your host has IP of 198.18.41.105, first input register holds  
-  the temperature from first thermometer encoded as DCBA float.
+  For example if your host has IP of 198.18.41.105, first input register holds the temperature from first thermometer encoded as DCBA float.
 </p>
 <pre>
 mbpoll -t 3:float -c 1 198.18.41.105
@@ -161,13 +160,13 @@ mbpoll -t 3:float -c 1 198.18.41.105
 
 <h2>Troubleshooting</h2>
 <p>
-  Write to support e-mail address on main website. Thanks.
+  Write to support e-mail address written on the main website.
 </p>
 
 </main>
 
 <footer>
-  <i>5th October 2024, usbtemp.com</i>
+  <i>created: 5th October 2024, <a href="https://usbtemp.com/">usbtemp.com</a></i>
 </footer>
 
 </body>
