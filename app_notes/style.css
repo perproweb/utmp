@@ -2,8 +2,8 @@ a{color:#23415a;}
 body{background:#eeeeee;font-family:sans-serif;font-size:13pt;margin:1em;}
 main,footer{max-width:1000px;margin:30px auto;}
 p{text-align:justify;}
-pre,p code{background:white;padding:2px 8px;border-radius:6px;overflow-x:auto;}
-pre{padding:1em;}
+pre,p code{background:white;padding:0 4px;border-radius:6px;overflow-x:auto;}
+pre{border-left: 1em solid white;border-right: 1em solid white;padding: 1em 0;}
 p code{display:inline-block;margin-top:-2px;max-width:100%;vertical-align:middle;white-space:nowrap;}
 .prompt,samp{user-select:none;}
 .prompt{margin-right:1ex;}
