@@ -1,4 +1,4 @@
-body{background:#eeeeee;font-family:sans-serif;font-size:13pt;margin:0;padding:1em;}
+body{background:#eeeeee;font-family:sans-serif;font-size:13pt;margin:0;padding:1em;text-size-adjust:none;}
 main,footer{max-width:1000px;margin:0 auto;}
 a{color:#23415a;}
 p{text-align:justify;}
