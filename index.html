@@ -43,6 +43,7 @@
       body{font-size:11pt;margin:1em;}
       ul{padding-left:1em;}
       li i{display:none;}
+      li+li{margin-top:0.5em;}
       input[type="image"]{display:block;margin:1em;}
     }
     form+form{margin-top:0.5em;}
@@ -59,7 +60,7 @@
     footer .b{margin-left:0.5em;}
     footer div .tooltiptext{bottom:125%;color:#fff;left:50%;margin-left:-10em;opacity:0;padding:1ex 0;position:absolute;text-align:center;transition:opacity 0.3s;visibility:hidden;width:20em;z-index:1;}
     footer div:hover .tooltiptext{opacity:1;visibility:visible;}
-    footer div .tooltiptext strong::before{content:"2025,";margin-right:2pt;}
+    footer div .tooltiptext strong::before{content:"2026,";margin-right:2pt;}
     footer div .tooltiptext strong::after{content:"d.o.o., Slovenia";margin-left:2pt;}
   </style>
 </head>
@@ -110,7 +111,7 @@
     "itemCondition": "http://schema.org/NewCondition",
     "price": "11.5",
     "priceCurrency": "USD",
-    "priceValidUntil": "2025-12-31",
+    "priceValidUntil": "2026-01-31",
     "url": "https://usbtemp.com/",
     "shippingDetails": {
       "@type": "OfferShippingDetails",
@@ -148,7 +149,7 @@ These values could be changed on request, e.g. put sensor on <a class="jpg" href
 
 <h3>Picture of normal version (with default configuration)</h3>
 <p>
-<a href="images/usbtemp_normal_2000.jpg"><img src="images/usbtemp_normal_626.jpg" alt="USB Thermometer normal version product image" class="image" height="169" width="626"></a>
+<a href="images/usbtemp_normal_2000.jpg"><img src="images/usbtemp_normal_626.jpg" alt="USB Thermometer normal version product image" class="image" height="169" width="626" fetchpriority="high"></a>
 </p>
 <p>
 <a class="jpg" href="images/usbtemp_waterproof_3400.jpg">picture of waterproof (stainless steel) version</a>, <a class="jpg" href="images/usbtemp_waterproof_1720_cu.jpg">picture of waterproof (copper) version</a>
@@ -185,7 +186,7 @@ Note: This information describes the current, 2<sup>nd</sup> generation of USB t
 
 <h2 id="software">Drivers and software</h2>
 <ul>
-<li><a href="https://usbtemp.s3.amazonaws.com/drivers/pl2303-v204.exe">Prolific (PL2303) driver for Windows (ver. 2.0.4)</a>, <a href="https://usbtemp.s3.amazonaws.com/drivers/pl2303-v1200.exe">(ver. 1.20)</a> <i>(from <a href="https://www.prolific.com.tw/en/products/smart-i-o-solution-en/usb-1-1-to-uart-serial-printer/" rel="noreferrer nofollow" target="_blank">prolific.com.tw</a>)</i></li>
+<li><a href="https://usbtemp.s3.amazonaws.com/drivers/pl2303-v208.exe">Prolific (PL2303) driver for Windows (ver. 2.0.8)</a>, <a href="https://usbtemp.s3.amazonaws.com/drivers/pl2303-v1200.exe">(ver. 1.20)</a> <i>(from <a href="https://www.prolific.com.tw/en/products/smart-i-o-solution-en/usb-1-1-to-uart-serial-printer/" rel="noreferrer nofollow" target="_blank">prolific.com.tw</a>)</i></li>
 <li>Silabs CP2102N driver <a href="https://usbtemp.s3.amazonaws.com/drivers/cp210x_win11_v11-4-0.zip">for Windows 11 &amp; 10</a>, <a href="https://usbtemp.s3.amazonaws.com/drivers/cp210x_win7-8_v6-7-6.zip">for Windows 7 &amp; 8</a> <i>(from <a href="https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads" rel="noreferrer nofollow" target="_blank">silabs.com</a>)</i></li>
 <li>Maxim 1-wire driver <a href="https://usbtemp.s3.amazonaws.com/drivers/1wx86-v405.msi">32-bit</a>, <a href="https://usbtemp.s3.amazonaws.com/drivers/1wx64-v405.msi">64-bit</a> <i>(for Windows from <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/1-wire-sdks/download-1wire-ibutton-drivers.html" rel="noreferrer nofollow" target="_blank">Analog</a>)</i></li>
 </ul>
