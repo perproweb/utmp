@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Application note for installation and configuration to integrate USB Thermometer into Home Assistant">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+  <link href="style.css" rel="stylesheet">
+  <link rel="canonical" href="https://usbtemp.com/app_notes/home-assistant.htm">
+  <title>Add Temperature Sensor to Home Assistant</title>
+</head>
+<body>
+
+<main>
+
+<b>Application Note</b>
+<h1>Integration into Home Assistant</h1>
+<p>
+  This note consists of the following steps:
+</p>
+<ol>
+<li>Preparing home assistant host</li>
+<li>Installation and configuration of owserver server</li>
+<li>Installation and configuration of 1-Wire integration</li>
+</ol>
+<p>
+  We are going to use <a href="https://github.com/lrybak/hassio-owserver" rel="noreferrer nofollow" target="_blank">hassio-owserver</a> and <a href="https://www.home-assistant.io/integrations/onewire/" rel="noreferrer nofollow" target="_blank">onewire integration</a>.
+</p>
+
+<h2>Preparing home assistant host</h2>
+<p>
+For this application note, it is assumed that Home Assistant is installed on the same device to which the USB thermometers are connected. To verify that the thermometers are detected, open the OS shell and check the output of <code>dmesg</code>.
+  <pre>
+<code class="prompt">ha ></code>login
+# dmesg | grep pl2303
+<samp>[ 4137.010502] usbcore: registered new interface driver pl2303
+[ 4137.010526] usbserial: USB Serial support registered for pl2303
+[ 4137.010540] pl2303 1-2:1.0: pl2303 converter detected
+[ 4137.010687] usb 1-2: pl2303 converter now attached to ttyUSB0</samp>
+</pre>
+<p>
+  For each additional USB thermometer last two lines would be repeated.
+</p>
+
+<h2>Onewire Server installation and configuration</h2>
+<p>
+  In Home Assistant dashboard, e.g. <code>http://homeassistant.local:8123/</code>, go to <b>Settings → Add-ons → <a href="https://my.home-assistant.io/redirect/supervisor" target="_blank">Add-on Store</a></b>. There, in top right corner (three dots) click <b>Repositories</b> and add repository URL: <code>https://github.com/lrybak/addon-repository</code>.
+<p>
+<p>
+  Back in search field enter <i>owserver</i> and select option <b>owserver (1-wire)</b>. On add-on page click Install and wait for installation.
+  <img class="center" src="owserver.png" height="277" width="418" alt="Installation of owserver add-on">
+</p>
+<p>
+  After installation of add-on additional tabs appears. Go to owserver add-on's <b>Configuration tab</b>. Under Options, devices click on pencil icon and select:
+</p>
+<dl>
+  <dt>device_type</dt>
+  <dd>passive</dd>
+  <dt>device</dt>
+  <dd>/dev/serial/by-id/usb-Prolific… (starts like this)</dd>
+</dl>
+<p>
+  <img class="center" src="passive.png" height="394" width="400" alt="Editing USB Thermometer properties">
+  Click Save and return to add-on <b>Info tab</b>. Click Start and write down hostname on right side. It would be like <i>bd5a478a-owserver</i>.
+  <img class="center" src="hostname.png" height="247" width="434" alt="owserver hostname">
+</p>
+<p>
+  To add second USB thermometer click Add below device list and select different device from a list.
+</p>
+
+<h2>1-Wire integration installation and configuration</h2>
+<p>
+  Go to <b>Settings → <a href="https://my.home-assistant.io/redirect/integrations" target="_blank">Devices & Services</a></b>. Click <b>Add integration</b> and enter <i>1-Wire</i>.
+  <img class="center" src="integration.png" height="234" width="500" alt="Installation of 1-Wire integration">
+  After you select <b>1-Wire</b>, you’ll be prompted for:
+</p>
+<dl>
+  <dt>Host</dt>
+  <dd>enter hostname from previous step</dd>
+  <dt>Port</dt>
+  <dd>keep 4304</dd>
+</dl>
+<p>
+  <img class="center" src="host_port.png" height="327" width="400" alt="Configuration of host and port of 1-Wire integration">
+  After setup, Home Assistant will scan for termometers and create entities for supported devices.
+  <img class="center" src="kitchen.png" height="124" width="490" alt="Temparature available in HA">
+</p>
+
+<h2>Troubleshooting</h2>
+<p>
+  Write to support e-mail address written on the main website.
+</p>
+
+</main>
+
+<footer>
+  <i>created: 2nd January 2025, <a href="https://usbtemp.com/">usbtemp.com</a></i>
+</footer>
+
+</body>
+</html>
