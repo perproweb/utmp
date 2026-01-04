@@ -15,6 +15,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://usbtemp.com/app_notes/home-assistant.htm</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://usbtemp.com/app_notes/modbus.htm</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
