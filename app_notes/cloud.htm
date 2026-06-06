@@ -69,13 +69,13 @@ digitemp_DS9097 -q -c /etc/digitemp.conf -t 0 | cut -d" " -f7
   Next step is sending this value (output) to the cloud service. For 4floats.com we choice arbitrary channel name and key with regard to limits stated on the website. For this application note, as an example, channel name is <i>appnote</i> with its key <i>2025utmp</i>. We send value of <i>20</i> to float key <samp>t</samp>, letter t as an abbreviation for temperature.
 </p>
 <pre>
-wget -q "https://a.4floats.com/poke/appnote?key=2025utmp&t=20" -O -
+wget -q "https://b.4floats.com:8443/poke/appnote?key=2025utmp&t=20" -O -
 </pre>
 <p>
   On success a <code>{"error":"None"}</code> will be returned. Then the sent value could be obtained by:
 </p>
 <pre>
-wget -q "https://a.4floats.com/peek/appnote" -O -
+wget -q "https://b.4floats.com:8443/peek/appnote" -O -
 </pre>
 <p>
   On success something like <code>{"t":"20","timestamp":"1735689600000"}</code> will be returned.
@@ -86,7 +86,7 @@ wget -q "https://a.4floats.com/peek/appnote" -O -
   The following script uploads temperature from device connected to <samp>/dev/ttyUSB0</samp> to channel <i>appnote</i> protected with key <i>2025utmp</i> to float key <i>t</i> using <i>utmp-cli</i> and <i>wget</i>.
 </p>
 <pre>
-SERVER="http://49.13.30.209" # resolved IP for a.4floats.com
+SERVER="http://45.77.140.33:8080" # resolved IP for b.4floats.com
 
 CHANNEL=appnote
 KEY=2025utmp
