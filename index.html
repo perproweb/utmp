@@ -31,7 +31,7 @@
     i{font-size:70%;}
     p{text-align:justify;}
     p.center{text-align:center;}
-    p.note{background:#eee4b3;padding:0.5em 1em;}
+    p.note{background:#eee4b3;padding:0.5em 1em;position:relative;}
     p.small{font-size:80%;}
     ul{list-style-type:square;}
     li{margin:0.25em 0;}
@@ -63,6 +63,8 @@
     footer div:hover .tooltiptext{opacity:1;visibility:visible;}
     footer div .tooltiptext strong::before{content:"2026,";margin-right:2pt;}
     footer div .tooltiptext strong::after{content:"d.o.o., Slovenia";margin-left:2pt;}
+    p.note{height:4em;margin-right:110px;box-sizing:border-box;}
+    .us-flag{height:4em;margin-right:-110px;opacity:0.8;position:absolute;right:0;top:0;width:auto;z-index:-1;}
   </style>
 </head>
 <body>
@@ -227,7 +229,7 @@ USB Thermometer (PL2303GL, <em>normal</em>: indigo <span class="colorbox indigo"
 <input type="hidden" name="currency_code" value="EUR">
 <input type="image" src="btn_cart_SM.png" name="submit" alt="Pay with PayPal">
 </form>
-
+<!--
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="ZQEWWRMZQS9M6">
@@ -241,8 +243,10 @@ USB Thermometer (PL2303GL, <em>normal</em>: indigo <span class="colorbox indigo"
 <input type="hidden" name="currency_code" value="USD">
 <input type="image" src="btn_cart_SM.png" name="submit" alt="Pay with PayPal">
 </form>
+-->
 <p class="note small">
-Due to the U.S. Executive Order "Suspending Duty-Free De Minimis Treatment for all Countries" delivery to the U.S. is temporarily suspended (not possible).
+Due to the U.S. Executive Order "Suspending Duty-Free De Minimis Treatment for all Countries" <u>delivery to the U.S. is temporarily suspended</u> (not possible).
+<svg class="us-flag" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500"><rect width="950" height="500" fill="#fff"/><g fill="#B22234"><rect y="0" width="950" height="38.46"/><rect y="76.92" width="950" height="38.46"/><rect y="153.85" width="950" height="38.46"/><rect y="230.77" width="950" height="38.46"/><rect y="307.69" width="950" height="38.46"/><rect y="384.62" width="950" height="38.46"/><rect y="461.54" width="950" height="38.46"/></g><rect width="380" height="269.23" fill="#3C3B6E"/><defs><polygon id="s" points="0,-14 3.3,-4.3 13.3,-4.3 5.1,1.7 8.2,11.3 0,5.4 -8.2,11.3 -5.1,1.7 -13.3,-4.3 -3.3,-4.3" fill="#fff"/></defs><g><use href="#s" x="30" y="15"/><use href="#s" x="94" y="15"/><use href="#s" x="158" y="15"/><use href="#s" x="222" y="15"/><use href="#s" x="286" y="15"/><use href="#s" x="350" y="15"/><use href="#s" x="62" y="45"/><use href="#s" x="126" y="45"/><use href="#s" x="190" y="45"/><use href="#s" x="254" y="45"/><use href="#s" x="318" y="45"/><use href="#s" x="30" y="75"/><use href="#s" x="94" y="75"/><use href="#s" x="158" y="75"/><use href="#s" x="222" y="75"/><use href="#s" x="286" y="75"/><use href="#s" x="350" y="75"/><use href="#s" x="62" y="105"/><use href="#s" x="126" y="105"/><use href="#s" x="190" y="105"/><use href="#s" x="254" y="105"/><use href="#s" x="318" y="105"/><use href="#s" x="30" y="135"/><use href="#s" x="94" y="135"/><use href="#s" x="158" y="135"/><use href="#s" x="222" y="135"/><use href="#s" x="286" y="135"/><use href="#s" x="350" y="135"/><use href="#s" x="62" y="165"/><use href="#s" x="126" y="165"/><use href="#s" x="190" y="165"/><use href="#s" x="254" y="165"/><use href="#s" x="318" y="165"/><use href="#s" x="30" y="195"/><use href="#s" x="94" y="195"/><use href="#s" x="158" y="195"/><use href="#s" x="222" y="195"/><use href="#s" x="286" y="195"/><use href="#s" x="350" y="195"/><use href="#s" x="62" y="225"/><use href="#s" x="126" y="225"/><use href="#s" x="190" y="225"/><use href="#s" x="254" y="225"/><use href="#s" x="318" y="225"/><use href="#s" x="30" y="255"/><use href="#s" x="94" y="255"/><use href="#s" x="158" y="255"/><use href="#s" x="222" y="255"/><use href="#s" x="286" y="255"/><use href="#s" x="350" y="255"/></g></svg>
 </p>
 <p class="small">
 Orders with value (excl. shipping &amp; handling) greater than 25 EUR (29 USD) will be shipped with tracking number, otherwise 1.5 EUR (1.7 USD) will be refunded and shipped as priority (airmail). Shipping is flat rate (does not depend on the number of items ordered). Having both version inside the same cart might be expressed as double amount for the shipping &amp; handling at the checkout. Second amount (and in case of two or more orders on the same day) will be refunded after purchase at order review.
